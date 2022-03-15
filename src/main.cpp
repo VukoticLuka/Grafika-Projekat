@@ -161,13 +161,14 @@ int main() {
 
     // build and compile shaders
     // -------------------------
+    //ucitavanje modela
     Shader ourShader("resources/shaders/2.model_lighting.vs", "resources/shaders/2.model_lighting.fs");
 
     // load models
-    // -----------
-    Model ourModel("resources/objects/backpack/backpack.obj");
+    // model ranca
+    Model ourModel("resources/objects/23-earth_photorealistic_2k/Earth 2K.obj");
     ourModel.SetShaderTextureNamePrefix("material.");
-
+    //point svetla
     PointLight& pointLight = programState->pointLight;
     pointLight.position = glm::vec3(4.0f, 4.0, 0.0);
     pointLight.ambient = glm::vec3(0.1, 0.1, 0.1);
@@ -297,7 +298,7 @@ void mouse_callback(GLFWwindow *window, double xpos, double ypos) {
 void scroll_callback(GLFWwindow *window, double xoffset, double yoffset) {
     programState->camera.ProcessMouseScroll(yoffset);
 }
-
+//crtanje gui-ja
 void DrawImGui(ProgramState *programState) {
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplGlfw_NewFrame();
