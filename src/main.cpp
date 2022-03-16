@@ -66,7 +66,7 @@ struct ProgramState {
 
     void LoadFromFile(std::string filename);
 };
-
+//dodaj je komentar
 void ProgramState::SaveToFile(std::string filename) {
     std::ofstream out(filename);
     out << clearColor.r << '\n'
