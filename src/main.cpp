@@ -66,7 +66,7 @@ struct ProgramState {
 
     void LoadFromFile(std::string filename);
 };
-//dodaj je komentar
+
 void ProgramState::SaveToFile(std::string filename) {
     std::ofstream out(filename);
     out << clearColor.r << '\n'
@@ -101,6 +101,8 @@ ProgramState *programState;
 
 void DrawImGui(ProgramState *programState);
 
+unsigned int loadCubemap(vector<string> faces);
+
 int main() {
     // inicijalizujemo glwf
     glfwInit();
@@ -118,7 +120,7 @@ int main() {
     if (window == NULL) {//provera greske
         std::cout << "Failed to create GLFW window" << std::endl;
         glfwTerminate();//deinicijalizacija glfwa
-        return -1;
+        return EXIT_FAILURE;
     }
     //kazemo glwfu da hocemo da crta u tom nasem prozoru
     glfwMakeContextCurrent(window);
@@ -133,7 +135,7 @@ int main() {
     // funkcija za ucitavanje svih glfw funkcija u nas program
     if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress)) {
         std::cout << "Failed to initialize GLAD" << std::endl;
-        return -1;
+        return EXIT_FAILURE;
     }
 
     // tell stb_image.h to flip loaded texture's on the y-axis (before loading model).
@@ -151,7 +153,6 @@ int main() {
     (void) io;
 
 
-
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init("#version 330 core");
 
@@ -161,23 +162,112 @@ int main() {
 
     // build and compile shaders
     // -------------------------
-    //ucitavanje modela
     Shader ourShader("resources/shaders/2.model_lighting.vs", "resources/shaders/2.model_lighting.fs");
 
     // load models
-    // model ranca
-    Model ourModel("resources/objects/backpack/backpack.obj");
+    // -----------
+    Model ourModel("resources/objects/planet/planet.obj");
+    //bio je ovaj model to sam zamenio
+    //Model ourModel("resources/objects/backpack/backpack.obj");
     ourModel.SetShaderTextureNamePrefix("material.");
-    //point svetla
-    PointLight& pointLight = programState->pointLight;
-    pointLight.position = glm::vec3(4.0f, 4.0, 0.0);
-    pointLight.ambient = glm::vec3(0.1, 0.1, 0.1);
-    pointLight.diffuse = glm::vec3(0.6, 0.6, 0.6);
+
+    PointLight &pointLight = programState->pointLight;
+    pointLight.position = glm::vec3(0.0f, -3.0f, -56.0);
+    pointLight.ambient = glm::vec3(0.4f, 0.4f, 0.4f);
+    pointLight.diffuse = glm::vec3(0.8, 0.8, 0.8);
     pointLight.specular = glm::vec3(1.0, 1.0, 1.0);
 
     pointLight.constant = 1.0f;
-    pointLight.linear = 0.09f;
-    pointLight.quadratic = 0.032f;
+    pointLight.linear = 0.083f;
+    pointLight.quadratic = 0.028f;
+
+
+//odavde si dodavao cubemap
+
+    Shader shader("resources/shaders/cubemaps.vs" , "resources/shaders/cubemaps.fs");
+    Shader skyboxShader("resources/shaders/skybox.vs", "resources/shaders/skybox.fs");
+
+
+
+    float skyboxVertices[] = {
+            // positions
+            -1.0f,  1.0f, -1.0f,
+            -1.0f, -1.0f, -1.0f,
+            1.0f, -1.0f,  -1.0f,
+            1.0f, -1.0f, -1.0f,
+            1.0f,  1.0f, -1.0f,
+            -1.0f,  1.0f, -1.0f,
+
+            -1.0f, -1.0f,  1.0f,
+            -1.0f, -1.0f, -1.0f,
+            -1.0f,  1.0f, -1.0f,
+            -1.0f,  1.0f, -1.0f,
+            -1.0f,  1.0f,  1.0f,
+            -1.0f, -1.0f,  1.0f,
+
+            1.0f, -1.0f, -1.0f,
+            1.0f, -1.0f,  1.0f,
+            1.0f,  1.0f,  1.0f,
+            1.0f,  1.0f,  1.0f,
+            1.0f,  1.0f, -1.0f,
+            1.0f, -1.0f, -1.0f,
+
+            -1.0f, -1.0f,  1.0f,
+            -1.0f,  1.0f,  1.0f,
+            1.0f,  1.0f,  1.0f,
+            1.0f,  1.0f,  1.0f,
+            1.0f, -1.0f,  1.0f,
+            -1.0f, -1.0f,  1.0f,
+
+            -1.0f,  1.0f, -1.0f,
+            1.0f,  1.0f, -1.0f,
+            1.0f,  1.0f,  1.0f,
+            1.0f,  1.0f,  1.0f,
+            -1.0f,  1.0f,  1.0f,
+            -1.0f,  1.0f, -1.0f,
+
+            -1.0f, -1.0f, -1.0f,
+            -1.0f, -1.0f,  1.0f,
+            1.0f, -1.0f, -1.0f,
+            1.0f, -1.0f, -1.0f,
+            -1.0f, -1.0f,  1.0f,
+            1.0f, -1.0f,  1.0f
+    };
+
+
+
+    //skybox VAO
+    unsigned int skyboxVAO, skyboxVBO;
+    glGenVertexArrays(1, &skyboxVAO);
+    glGenBuffers(1, &skyboxVBO);
+    glBindVertexArray(skyboxVAO);
+    glBindBuffer(GL_ARRAY_BUFFER, skyboxVBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(skyboxVertices), &skyboxVertices, GL_STATIC_DRAW);
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+
+    //load textures
+    vector<std::string> faces
+            {
+                    FileSystem::getPath("resources/textures/skybox/right-min.png"),
+                    FileSystem::getPath("resources/textures/skybox/left-min.png"),
+                    FileSystem::getPath("resources/textures/skybox/top-min.png"),
+                    FileSystem::getPath("resources/textures/skybox/bottom-min.png"),
+                    FileSystem::getPath("resources/textures/skybox/front-min.png"),
+                    FileSystem::getPath("resources/textures/skybox/back-min.png")
+            };
+    stbi_set_flip_vertically_on_load(false);
+    unsigned int cubemapTexture = loadCubemap(faces);
+
+    //shader configuration
+    shader.use();
+    shader.setInt("texture1", 0);
+
+    skyboxShader.use();
+    skyboxShader.setInt("skybox", 0);
+
+
+    //do ovde si dodavao
 
 
 
@@ -198,7 +288,9 @@ int main() {
         processInput(window);
 
         // renderovanje
+        //postavljanje boje za ciscenje bafera
         glClearColor(programState->clearColor.r, programState->clearColor.g, programState->clearColor.b, 1.0f);
+        //sa ovim naredjujemo sta zelimo da ocistimo (ciscenje bafera)
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         // don't forget to enable shader before setting uniforms
@@ -224,10 +316,31 @@ int main() {
         glm::mat4 model = glm::mat4(1.0f);
         model = glm::translate(model,
                                programState->backpackPosition); // translate it down so it's at the center of the scene
-        model = glm::scale(model, glm::vec3(programState->backpackScale));    // it's a bit too big for our scene, so scale it down
+        model = glm::scale(model, glm::vec3(
+                programState->backpackScale));    // it's a bit too big for our scene, so scale it down
         ourShader.setMat4("model", model);
         ourModel.Draw(ourShader);
 
+        //ovo obrisi ako ne valja
+        // draw skybox as last
+        glDepthFunc(GL_LEQUAL);  // change depth function so depth test passes when values are equal to depth buffer's content
+        skyboxShader.use();
+        view = glm::mat4(glm::mat3(programState->camera.GetViewMatrix())); // remove translation from the view matrix
+        skyboxShader.setMat4("view", view);
+        skyboxShader.setMat4("projection", projection);
+
+
+
+        // skybox cube
+        glBindVertexArray(skyboxVAO);
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_CUBE_MAP, cubemapTexture);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+        glBindVertexArray(0);
+        glDepthFunc(GL_LESS); // set depth function back to default
+        // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
+        // -------------------------------------------------------------------------------
+        //do ovde brisi
         if (programState->ImGuiEnabled)
             DrawImGui(programState);
 
@@ -239,6 +352,10 @@ int main() {
         glfwPollEvents();
     }
 
+
+    glDeleteVertexArrays(1, &skyboxVAO);
+    glDeleteVertexArrays(1, &skyboxVAO);
+
     programState->SaveToFile("resources/program_state.txt");
     delete programState;
     ImGui_ImplOpenGL3_Shutdown();
@@ -248,6 +365,35 @@ int main() {
     // ------------------------------------------------------------------
     glfwTerminate();
     return 0;
+}
+//funkcija za cubemap i skybox
+unsigned int loadCubemap(vector<string> faces) {
+    unsigned int textureID;
+    glGenTextures(1, &textureID);
+    glBindTexture(GL_TEXTURE_CUBE_MAP, textureID);
+
+    int width, height, nrChannels;
+    for (unsigned int i = 0; i < faces.size(); i++)
+    {
+        unsigned char *data = stbi_load(faces[i].c_str(), &width, &height, &nrChannels, 0);
+        if (data)
+        {
+            glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+            stbi_image_free(data);
+        }
+        else
+        {
+            std::cout << "Cubemap texture failed to load at path: " << faces[i] << std::endl;
+            stbi_image_free(data);
+        }
+    }
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+
+    return textureID;
 }
 
 // process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly
@@ -298,7 +444,7 @@ void mouse_callback(GLFWwindow *window, double xpos, double ypos) {
 void scroll_callback(GLFWwindow *window, double xoffset, double yoffset) {
     programState->camera.ProcessMouseScroll(yoffset);
 }
-//crtanje gui-ja
+
 void DrawImGui(ProgramState *programState) {
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplGlfw_NewFrame();
@@ -345,3 +491,4 @@ void key_callback(GLFWwindow *window, int key, int scancode, int action, int mod
         }
     }
 }
+
