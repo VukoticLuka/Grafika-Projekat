@@ -1,4 +1,4 @@
-# Install script for directory: /home/luka/Desktop/projekat/Grafika-Projekat/libs/imgui
+# Install script for directory: /home/luka/Desktop/projekat-pravi/Grafika-Projekat/libs/imgui
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

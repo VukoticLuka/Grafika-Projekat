@@ -166,7 +166,7 @@ int main() {
 
     // load models
     // model ranca
-    Model ourModel("resources/objects/23-earth_photorealistic_2k/Earth 2K.obj");
+    Model ourModel("resources/objects/backpack/backpack.obj");
     ourModel.SetShaderTextureNamePrefix("material.");
     //point svetla
     PointLight& pointLight = programState->pointLight;
