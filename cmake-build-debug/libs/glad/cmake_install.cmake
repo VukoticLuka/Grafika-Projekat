@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Install script for directory: /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/glad
+=======
+# Install script for directory: /home/luka/Desktop/1/Grafika-Projekat/libs/glad
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

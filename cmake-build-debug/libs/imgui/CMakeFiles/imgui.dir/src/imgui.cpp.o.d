@@ -1,8 +1,15 @@
 libs/imgui/CMakeFiles/imgui.dir/src/imgui.cpp.o: \
+<<<<<<< HEAD
  /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/imgui/src/imgui.cpp \
  /usr/include/stdc-predef.h \
  /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/imgui/include/imgui.h \
  /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/imgui/include/imconfig.h \
+=======
+ /home/luka/Desktop/1/Grafika-Projekat/libs/imgui/src/imgui.cpp \
+ /usr/include/stdc-predef.h \
+ /home/luka/Desktop/1/Grafika-Projekat/libs/imgui/include/imgui.h \
+ /home/luka/Desktop/1/Grafika-Projekat/libs/imgui/include/imconfig.h \
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
  /usr/lib/gcc/x86_64-linux-gnu/9/include/float.h \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/stdarg.h \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h /usr/include/string.h \
@@ -18,7 +25,11 @@ libs/imgui/CMakeFiles/imgui.dir/src/imgui.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
  /usr/include/assert.h \
+<<<<<<< HEAD
  /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/imgui/include/imgui_internal.h \
+=======
+ /home/luka/Desktop/1/Grafika-Projekat/libs/imgui/include/imgui_internal.h \
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
  /usr/include/stdio.h /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/timesize.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h \
@@ -88,7 +99,11 @@ libs/imgui/CMakeFiles/imgui.dir/src/imgui.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+<<<<<<< HEAD
  /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/imgui/include/imstb_textedit.h \
+=======
+ /home/luka/Desktop/1/Grafika-Projekat/libs/imgui/include/imstb_textedit.h \
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
  /usr/include/ctype.h /usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h \
  /usr/include/stdint.h /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h
