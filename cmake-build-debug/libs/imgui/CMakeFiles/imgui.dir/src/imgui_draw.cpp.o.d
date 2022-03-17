@@ -1,8 +1,15 @@
 libs/imgui/CMakeFiles/imgui.dir/src/imgui_draw.cpp.o: \
+<<<<<<< HEAD
+ /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/imgui/src/imgui_draw.cpp \
+ /usr/include/stdc-predef.h \
+ /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/imgui/include/imgui.h \
+ /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/imgui/include/imconfig.h \
+=======
  /home/luka/Desktop/1/Grafika-Projekat/libs/imgui/src/imgui_draw.cpp \
  /usr/include/stdc-predef.h \
  /home/luka/Desktop/1/Grafika-Projekat/libs/imgui/include/imgui.h \
  /home/luka/Desktop/1/Grafika-Projekat/libs/imgui/include/imconfig.h \
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
  /usr/lib/gcc/x86_64-linux-gnu/9/include/float.h \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/stdarg.h \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h /usr/include/string.h \
@@ -18,7 +25,11 @@ libs/imgui/CMakeFiles/imgui.dir/src/imgui_draw.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
  /usr/include/assert.h \
+<<<<<<< HEAD
+ /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/imgui/include/imgui_internal.h \
+=======
  /home/luka/Desktop/1/Grafika-Projekat/libs/imgui/include/imgui_internal.h \
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
  /usr/include/stdio.h /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/timesize.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h \
@@ -88,6 +99,12 @@ libs/imgui/CMakeFiles/imgui.dir/src/imgui_draw.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+<<<<<<< HEAD
+ /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/imgui/include/imstb_textedit.h \
+ /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/imgui/include/imstb_rectpack.h \
+ /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/imgui/include/imstb_truetype.h
+=======
  /home/luka/Desktop/1/Grafika-Projekat/libs/imgui/include/imstb_textedit.h \
  /home/luka/Desktop/1/Grafika-Projekat/libs/imgui/include/imstb_rectpack.h \
  /home/luka/Desktop/1/Grafika-Projekat/libs/imgui/include/imstb_truetype.h
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3

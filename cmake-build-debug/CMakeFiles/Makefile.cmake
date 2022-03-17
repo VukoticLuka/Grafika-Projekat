@@ -7,6 +7,32 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
+<<<<<<< HEAD
+  "/home/luka/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/linux/share/cmake-3.21/Modules/CMakeCInformation.cmake"
+  "/home/luka/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/linux/share/cmake-3.21/Modules/CMakeCXXInformation.cmake"
+  "/home/luka/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/linux/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake"
+  "/home/luka/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/linux/share/cmake-3.21/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake"
+  "/home/luka/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/linux/share/cmake-3.21/Modules/CMakeFindCodeBlocks.cmake"
+  "/home/luka/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/linux/share/cmake-3.21/Modules/CMakeGenericSystem.cmake"
+  "/home/luka/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/linux/share/cmake-3.21/Modules/CMakeInitializeConfigs.cmake"
+  "/home/luka/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/linux/share/cmake-3.21/Modules/CMakeLanguageInformation.cmake"
+  "/home/luka/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/linux/share/cmake-3.21/Modules/CMakeSystemSpecificInformation.cmake"
+  "/home/luka/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/linux/share/cmake-3.21/Modules/CMakeSystemSpecificInitialize.cmake"
+  "/home/luka/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/linux/share/cmake-3.21/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+  "/home/luka/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/linux/share/cmake-3.21/Modules/Compiler/GNU-C.cmake"
+  "/home/luka/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/linux/share/cmake-3.21/Modules/Compiler/GNU-CXX.cmake"
+  "/home/luka/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/linux/share/cmake-3.21/Modules/Compiler/GNU.cmake"
+  "/home/luka/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/linux/share/cmake-3.21/Modules/FindOpenGL.cmake"
+  "/home/luka/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/linux/share/cmake-3.21/Modules/FindPackageHandleStandardArgs.cmake"
+  "/home/luka/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/linux/share/cmake-3.21/Modules/FindPackageMessage.cmake"
+  "/home/luka/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/linux/share/cmake-3.21/Modules/Platform/Linux-GNU-C.cmake"
+  "/home/luka/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/linux/share/cmake-3.21/Modules/Platform/Linux-GNU-CXX.cmake"
+  "/home/luka/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/linux/share/cmake-3.21/Modules/Platform/Linux-GNU.cmake"
+  "/home/luka/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/linux/share/cmake-3.21/Modules/Platform/Linux.cmake"
+  "/home/luka/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/linux/share/cmake-3.21/Modules/Platform/UnixPaths.cmake"
+  "/home/luka/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/linux/share/cmake-3.21/Modules/ProcessorCount.cmake"
+=======
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
   "../CMakeLists.txt"
   "CMakeFiles/3.21.1/CMakeCCompiler.cmake"
   "CMakeFiles/3.21.1/CMakeCXXCompiler.cmake"
@@ -120,11 +146,6 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
-  "CMakeFiles/3.21.1/CMakeSystem.cmake"
-  "CMakeFiles/3.21.1/CMakeCCompiler.cmake"
-  "CMakeFiles/3.21.1/CMakeCXXCompiler.cmake"
-  "CMakeFiles/3.21.1/CMakeCCompiler.cmake"
-  "CMakeFiles/3.21.1/CMakeCXXCompiler.cmake"
   "configuration/root_directory.h"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "libs/glad/CMakeFiles/CMakeDirectoryInformation.cmake"

@@ -53,10 +53,17 @@ RM = /snap/clion/184/bin/cmake/linux/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
+<<<<<<< HEAD
+CMAKE_SOURCE_DIR = /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat
+
+# The top-level build directory on which CMake was run.
+CMAKE_BINARY_DIR = /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug
+=======
 CMAKE_SOURCE_DIR = /home/luka/Desktop/1/Grafika-Projekat
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
 
 # Include any dependencies generated for this target.
 include CMakeFiles/STB_IMAGE.dir/depend.make
@@ -72,6 +79,18 @@ include CMakeFiles/STB_IMAGE.dir/flags.make
 CMakeFiles/STB_IMAGE.dir/libs/stb_image.cpp.o: CMakeFiles/STB_IMAGE.dir/flags.make
 CMakeFiles/STB_IMAGE.dir/libs/stb_image.cpp.o: ../libs/stb_image.cpp
 CMakeFiles/STB_IMAGE.dir/libs/stb_image.cpp.o: CMakeFiles/STB_IMAGE.dir/compiler_depend.ts
+<<<<<<< HEAD
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/STB_IMAGE.dir/libs/stb_image.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Wno-shift-negative-value -Wno-implicit-fallthrough -MD -MT CMakeFiles/STB_IMAGE.dir/libs/stb_image.cpp.o -MF CMakeFiles/STB_IMAGE.dir/libs/stb_image.cpp.o.d -o CMakeFiles/STB_IMAGE.dir/libs/stb_image.cpp.o -c /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/stb_image.cpp
+
+CMakeFiles/STB_IMAGE.dir/libs/stb_image.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/STB_IMAGE.dir/libs/stb_image.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Wno-shift-negative-value -Wno-implicit-fallthrough -E /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/stb_image.cpp > CMakeFiles/STB_IMAGE.dir/libs/stb_image.cpp.i
+
+CMakeFiles/STB_IMAGE.dir/libs/stb_image.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/STB_IMAGE.dir/libs/stb_image.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Wno-shift-negative-value -Wno-implicit-fallthrough -S /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/stb_image.cpp -o CMakeFiles/STB_IMAGE.dir/libs/stb_image.cpp.s
+=======
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/STB_IMAGE.dir/libs/stb_image.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Wno-shift-negative-value -Wno-implicit-fallthrough -MD -MT CMakeFiles/STB_IMAGE.dir/libs/stb_image.cpp.o -MF CMakeFiles/STB_IMAGE.dir/libs/stb_image.cpp.o.d -o CMakeFiles/STB_IMAGE.dir/libs/stb_image.cpp.o -c /home/luka/Desktop/1/Grafika-Projekat/libs/stb_image.cpp
 
@@ -82,6 +101,7 @@ CMakeFiles/STB_IMAGE.dir/libs/stb_image.cpp.i: cmake_force
 CMakeFiles/STB_IMAGE.dir/libs/stb_image.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/STB_IMAGE.dir/libs/stb_image.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Wno-shift-negative-value -Wno-implicit-fallthrough -S /home/luka/Desktop/1/Grafika-Projekat/libs/stb_image.cpp -o CMakeFiles/STB_IMAGE.dir/libs/stb_image.cpp.s
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
 
 # Object files for target STB_IMAGE
 STB_IMAGE_OBJECTS = \
@@ -93,7 +113,11 @@ STB_IMAGE_EXTERNAL_OBJECTS =
 libSTB_IMAGE.a: CMakeFiles/STB_IMAGE.dir/libs/stb_image.cpp.o
 libSTB_IMAGE.a: CMakeFiles/STB_IMAGE.dir/build.make
 libSTB_IMAGE.a: CMakeFiles/STB_IMAGE.dir/link.txt
+<<<<<<< HEAD
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libSTB_IMAGE.a"
+=======
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libSTB_IMAGE.a"
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
 	$(CMAKE_COMMAND) -P CMakeFiles/STB_IMAGE.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/STB_IMAGE.dir/link.txt --verbose=$(VERBOSE)
 
@@ -106,6 +130,10 @@ CMakeFiles/STB_IMAGE.dir/clean:
 .PHONY : CMakeFiles/STB_IMAGE.dir/clean
 
 CMakeFiles/STB_IMAGE.dir/depend:
+<<<<<<< HEAD
+	cd /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug/CMakeFiles/STB_IMAGE.dir/DependInfo.cmake --color=$(COLOR)
+=======
 	cd /home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/luka/Desktop/1/Grafika-Projekat /home/luka/Desktop/1/Grafika-Projekat /home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug /home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug /home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug/CMakeFiles/STB_IMAGE.dir/DependInfo.cmake --color=$(COLOR)
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
 .PHONY : CMakeFiles/STB_IMAGE.dir/depend
 

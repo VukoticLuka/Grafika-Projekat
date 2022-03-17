@@ -57,10 +57,17 @@ RM = /snap/clion/184/bin/cmake/linux/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
+<<<<<<< HEAD
+CMAKE_SOURCE_DIR = /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat
+
+# The top-level build directory on which CMake was run.
+CMAKE_BINARY_DIR = /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug
+=======
 CMAKE_SOURCE_DIR = /home/luka/Desktop/1/Grafika-Projekat
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +94,15 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
+<<<<<<< HEAD
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug/CMakeFiles /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug//CMakeFiles/progress.marks
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug/CMakeFiles 0
+=======
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug/CMakeFiles /home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug/CMakeFiles 0
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
 .PHONY : all
 
 # The main clean target

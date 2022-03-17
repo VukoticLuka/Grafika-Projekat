@@ -57,10 +57,17 @@ RM = /snap/clion/184/bin/cmake/linux/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
+<<<<<<< HEAD
+CMAKE_SOURCE_DIR = /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat
+
+# The top-level build directory on which CMake was run.
+CMAKE_BINARY_DIR = /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug
+=======
 CMAKE_SOURCE_DIR = /home/luka/Desktop/1/Grafika-Projekat
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +94,24 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
+<<<<<<< HEAD
+	cd /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_progress_start /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug/CMakeFiles /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug/libs/glad//CMakeFiles/progress.marks
+	cd /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/glad/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug/CMakeFiles 0
+=======
 	cd /home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_progress_start /home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug/CMakeFiles /home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug/libs/glad//CMakeFiles/progress.marks
 	cd /home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/glad/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug/CMakeFiles 0
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
 .PHONY : all
 
 # The main clean target
 clean:
+<<<<<<< HEAD
+	cd /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/glad/clean
+=======
 	cd /home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/glad/clean
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +120,38 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
+<<<<<<< HEAD
+	cd /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/glad/preinstall
+=======
 	cd /home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/glad/preinstall
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
+<<<<<<< HEAD
+	cd /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/glad/preinstall
+=======
 	cd /home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/glad/preinstall
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
+<<<<<<< HEAD
+	cd /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+=======
 	cd /home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
 .PHONY : depend
 
 # Convenience name for target.
 libs/glad/CMakeFiles/glad.dir/rule:
+<<<<<<< HEAD
+	cd /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/glad/CMakeFiles/glad.dir/rule
+=======
 	cd /home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/glad/CMakeFiles/glad.dir/rule
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
 .PHONY : libs/glad/CMakeFiles/glad.dir/rule
 
 # Convenience name for target.
@@ -127,7 +160,11 @@ glad: libs/glad/CMakeFiles/glad.dir/rule
 
 # fast build rule for target.
 glad/fast:
+<<<<<<< HEAD
+	cd /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/glad/CMakeFiles/glad.dir/build.make libs/glad/CMakeFiles/glad.dir/build
+=======
 	cd /home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/glad/CMakeFiles/glad.dir/build.make libs/glad/CMakeFiles/glad.dir/build
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
 .PHONY : glad/fast
 
 src/glad.o: src/glad.c.o
@@ -135,7 +172,11 @@ src/glad.o: src/glad.c.o
 
 # target to build an object file
 src/glad.c.o:
+<<<<<<< HEAD
+	cd /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/glad/CMakeFiles/glad.dir/build.make libs/glad/CMakeFiles/glad.dir/src/glad.c.o
+=======
 	cd /home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/glad/CMakeFiles/glad.dir/build.make libs/glad/CMakeFiles/glad.dir/src/glad.c.o
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
 .PHONY : src/glad.c.o
 
 src/glad.i: src/glad.c.i
@@ -143,7 +184,11 @@ src/glad.i: src/glad.c.i
 
 # target to preprocess a source file
 src/glad.c.i:
+<<<<<<< HEAD
+	cd /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/glad/CMakeFiles/glad.dir/build.make libs/glad/CMakeFiles/glad.dir/src/glad.c.i
+=======
 	cd /home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/glad/CMakeFiles/glad.dir/build.make libs/glad/CMakeFiles/glad.dir/src/glad.c.i
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
 .PHONY : src/glad.c.i
 
 src/glad.s: src/glad.c.s
@@ -151,7 +196,11 @@ src/glad.s: src/glad.c.s
 
 # target to generate assembly for a file
 src/glad.c.s:
+<<<<<<< HEAD
+	cd /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/glad/CMakeFiles/glad.dir/build.make libs/glad/CMakeFiles/glad.dir/src/glad.c.s
+=======
 	cd /home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/glad/CMakeFiles/glad.dir/build.make libs/glad/CMakeFiles/glad.dir/src/glad.c.s
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
 .PHONY : src/glad.c.s
 
 # Help Target
@@ -177,6 +226,10 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
+<<<<<<< HEAD
+	cd /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+=======
 	cd /home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
 .PHONY : cmake_check_build_system
 

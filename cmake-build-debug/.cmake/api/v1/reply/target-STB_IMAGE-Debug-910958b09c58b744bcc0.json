@@ -62,11 +62,19 @@
 			[
 				{
 					"backtrace" : 2,
+<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/target-STB_IMAGE-Debug-0c04d1a2d80e588e4c32.json
+					"path" : "/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug/configuration"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/include"
+=======
 					"path" : "/home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug/configuration"
 				},
 				{
 					"backtrace" : 3,
 					"path" : "/home/luka/Desktop/1/Grafika-Projekat/include"
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3:cmake-build-debug/.cmake/api/v1/reply/target-STB_IMAGE-Debug-910958b09c58b744bcc0.json
 				}
 			],
 			"language" : "CXX",

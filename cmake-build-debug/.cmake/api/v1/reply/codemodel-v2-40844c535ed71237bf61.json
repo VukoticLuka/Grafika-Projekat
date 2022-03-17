@@ -1,0 +1,143 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.11"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						3
+					]
+				},
+				{
+					"build" : "libs/glad",
+					"jsonFile" : "directory-libs.glad-Debug-ca06ba1f4a1543a5a943.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.11"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "libs/glad",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "libs/imgui",
+					"jsonFile" : "directory-libs.imgui-Debug-1bfd47ea2792a56cc0dd.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.11"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "libs/imgui",
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2
+					],
+					"name" : "project_base",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "STB_IMAGE::@6890427a1f51a3e7e1df",
+<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-40844c535ed71237bf61.json
+					"jsonFile" : "target-STB_IMAGE-Debug-0c04d1a2d80e588e4c32.json",
+=======
+					"jsonFile" : "target-STB_IMAGE-Debug-910958b09c58b744bcc0.json",
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3:cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-e3bf6fddcd92f0b08a0b.json
+					"name" : "STB_IMAGE",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "glad::@394eb3637a8e70cb7dd5",
+<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-40844c535ed71237bf61.json
+					"jsonFile" : "target-glad-Debug-69673cd2bce47dae029e.json",
+=======
+					"jsonFile" : "target-glad-Debug-12725480096b290748c5.json",
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3:cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-e3bf6fddcd92f0b08a0b.json
+					"name" : "glad",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "imgui::@8273e96cb584335637bd",
+<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-40844c535ed71237bf61.json
+					"jsonFile" : "target-imgui-Debug-66203d94cb965b054f8d.json",
+=======
+					"jsonFile" : "target-imgui-Debug-56acebf3015e036d4d24.json",
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3:cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-e3bf6fddcd92f0b08a0b.json
+					"name" : "imgui",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "project_base::@6890427a1f51a3e7e1df",
+<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-40844c535ed71237bf61.json
+					"jsonFile" : "target-project_base-Debug-9338bd4463172c4d3e5c.json",
+=======
+					"jsonFile" : "target-project_base-Debug-06bb4b32006e0a61c461.json",
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3:cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-e3bf6fddcd92f0b08a0b.json
+					"name" : "project_base",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-40844c535ed71237bf61.json
+		"build" : "/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug",
+		"source" : "/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat"
+=======
+		"build" : "/home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug",
+		"source" : "/home/luka/Desktop/1/Grafika-Projekat"
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3:cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-e3bf6fddcd92f0b08a0b.json
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

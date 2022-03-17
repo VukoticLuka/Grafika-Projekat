@@ -74,11 +74,19 @@
 			[
 				{
 					"backtrace" : 4,
+<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/target-imgui-Debug-66203d94cb965b054f8d.json
+					"path" : "/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/imgui/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/glad/include"
+=======
 					"path" : "/home/luka/Desktop/1/Grafika-Projekat/libs/imgui/include"
 				},
 				{
 					"backtrace" : 2,
 					"path" : "/home/luka/Desktop/1/Grafika-Projekat/libs/glad/include"
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3:cmake-build-debug/.cmake/api/v1/reply/target-imgui-Debug-56acebf3015e036d4d24.json
 				}
 			],
 			"language" : "CXX",

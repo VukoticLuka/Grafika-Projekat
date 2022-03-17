@@ -79,7 +79,11 @@
 				}
 			],
 			"type" : "INTERNAL",
+<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/cache-v2-fc03e9cef8ac543beef5.json
+			"value" : "/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug"
+=======
 			"value" : "/home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug"
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3:cmake-build-debug/.cmake/api/v1/reply/cache-v2-3082bdb42129bb15fc3c.json
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -703,7 +707,11 @@
 				}
 			],
 			"type" : "INTERNAL",
+<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/cache-v2-fc03e9cef8ac543beef5.json
+			"value" : "/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat"
+=======
 			"value" : "/home/luka/Desktop/1/Grafika-Projekat"
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3:cmake-build-debug/.cmake/api/v1/reply/cache-v2-3082bdb42129bb15fc3c.json
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1459,7 +1467,11 @@
 				}
 			],
 			"type" : "STATIC",
+<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/cache-v2-fc03e9cef8ac543beef5.json
+			"value" : "/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug"
+=======
 			"value" : "/home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug"
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3:cmake-build-debug/.cmake/api/v1/reply/cache-v2-3082bdb42129bb15fc3c.json
 		},
 		{
 			"name" : "project_base_IS_TOP_LEVEL",
@@ -1483,7 +1495,11 @@
 				}
 			],
 			"type" : "STATIC",
+<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/cache-v2-fc03e9cef8ac543beef5.json
+			"value" : "/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat"
+=======
 			"value" : "/home/luka/Desktop/1/Grafika-Projekat"
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3:cmake-build-debug/.cmake/api/v1/reply/cache-v2-3082bdb42129bb15fc3c.json
 		}
 	],
 	"kind" : "cache",

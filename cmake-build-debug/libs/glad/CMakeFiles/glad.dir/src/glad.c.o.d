@@ -1,5 +1,9 @@
 libs/glad/CMakeFiles/glad.dir/src/glad.c.o: \
+<<<<<<< HEAD
+ /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/glad/src/glad.c \
+=======
  /home/luka/Desktop/1/Grafika-Projekat/libs/glad/src/glad.c \
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
  /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -50,8 +54,13 @@ libs/glad/CMakeFiles/glad.dir/src/glad.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/strings.h \
+<<<<<<< HEAD
+ /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/glad/include/glad/glad.h \
+ /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/glad/include/KHR/khrplatform.h \
+=======
  /home/luka/Desktop/1/Grafika-Projekat/libs/glad/include/glad/glad.h \
  /home/luka/Desktop/1/Grafika-Projekat/libs/glad/include/KHR/khrplatform.h \
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
  /usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h /usr/include/dlfcn.h \

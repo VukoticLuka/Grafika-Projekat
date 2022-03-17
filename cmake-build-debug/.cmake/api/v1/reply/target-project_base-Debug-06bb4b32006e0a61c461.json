@@ -2,7 +2,11 @@
 	"artifacts" : 
 	[
 		{
+<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/target-project_base-Debug-9338bd4463172c4d3e5c.json
+			"path" : "/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/project_base"
+=======
 			"path" : "/home/luka/Desktop/1/Grafika-Projekat/project_base"
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3:cmake-build-debug/.cmake/api/v1/reply/target-project_base-Debug-06bb4b32006e0a61c461.json
 		}
 	],
 	"backtrace" : 1,
@@ -72,6 +76,21 @@
 			[
 				{
 					"backtrace" : 3,
+<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/target-project_base-Debug-9338bd4463172c4d3e5c.json
+					"path" : "/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug/configuration"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/glad/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/imgui/include"
+=======
 					"path" : "/home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug/configuration"
 				},
 				{
@@ -85,6 +104,7 @@
 				{
 					"backtrace" : 2,
 					"path" : "/home/luka/Desktop/1/Grafika-Projekat/libs/imgui/include"
+>>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3:cmake-build-debug/.cmake/api/v1/reply/target-project_base-Debug-06bb4b32006e0a61c461.json
 				}
 			],
 			"language" : "CXX",
