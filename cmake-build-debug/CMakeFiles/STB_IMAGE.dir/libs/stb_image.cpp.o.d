@@ -1,13 +1,7 @@
 CMakeFiles/STB_IMAGE.dir/libs/stb_image.cpp.o: \
-<<<<<<< HEAD
- /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/stb_image.cpp \
+ /home/luka/Desktop/2/Grafika-Projekat/libs/stb_image.cpp \
  /usr/include/stdc-predef.h \
- /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/include/stb_image.h \
-=======
- /home/luka/Desktop/1/Grafika-Projekat/libs/stb_image.cpp \
- /usr/include/stdc-predef.h \
- /home/luka/Desktop/1/Grafika-Projekat/include/stb_image.h \
->>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
+ /home/luka/Desktop/2/Grafika-Projekat/include/stb_image.h \
  /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \

@@ -53,17 +53,10 @@ RM = /snap/clion/184/bin/cmake/linux/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-<<<<<<< HEAD
-CMAKE_SOURCE_DIR = /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat
+CMAKE_SOURCE_DIR = /home/luka/Desktop/2/Grafika-Projekat
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug
-=======
-CMAKE_SOURCE_DIR = /home/luka/Desktop/1/Grafika-Projekat
-
-# The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug
->>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
+CMAKE_BINARY_DIR = /home/luka/Desktop/2/Grafika-Projekat/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/project_base.dir/depend.make
@@ -79,29 +72,16 @@ include CMakeFiles/project_base.dir/flags.make
 CMakeFiles/project_base.dir/src/main.cpp.o: CMakeFiles/project_base.dir/flags.make
 CMakeFiles/project_base.dir/src/main.cpp.o: ../src/main.cpp
 CMakeFiles/project_base.dir/src/main.cpp.o: CMakeFiles/project_base.dir/compiler_depend.ts
-<<<<<<< HEAD
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/project_base.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/project_base.dir/src/main.cpp.o -MF CMakeFiles/project_base.dir/src/main.cpp.o.d -o CMakeFiles/project_base.dir/src/main.cpp.o -c /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/luka/Desktop/2/Grafika-Projekat/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/project_base.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/project_base.dir/src/main.cpp.o -MF CMakeFiles/project_base.dir/src/main.cpp.o.d -o CMakeFiles/project_base.dir/src/main.cpp.o -c /home/luka/Desktop/2/Grafika-Projekat/src/main.cpp
 
 CMakeFiles/project_base.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project_base.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/src/main.cpp > CMakeFiles/project_base.dir/src/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luka/Desktop/2/Grafika-Projekat/src/main.cpp > CMakeFiles/project_base.dir/src/main.cpp.i
 
 CMakeFiles/project_base.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project_base.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/src/main.cpp -o CMakeFiles/project_base.dir/src/main.cpp.s
-=======
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/project_base.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/project_base.dir/src/main.cpp.o -MF CMakeFiles/project_base.dir/src/main.cpp.o.d -o CMakeFiles/project_base.dir/src/main.cpp.o -c /home/luka/Desktop/1/Grafika-Projekat/src/main.cpp
-
-CMakeFiles/project_base.dir/src/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project_base.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luka/Desktop/1/Grafika-Projekat/src/main.cpp > CMakeFiles/project_base.dir/src/main.cpp.i
-
-CMakeFiles/project_base.dir/src/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project_base.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luka/Desktop/1/Grafika-Projekat/src/main.cpp -o CMakeFiles/project_base.dir/src/main.cpp.s
->>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luka/Desktop/2/Grafika-Projekat/src/main.cpp -o CMakeFiles/project_base.dir/src/main.cpp.s
 
 # Object files for target project_base
 project_base_OBJECTS = \
@@ -120,11 +100,7 @@ project_base_EXTERNAL_OBJECTS =
 ../project_base: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 ../project_base: libs/glad/libglad.a
 ../project_base: CMakeFiles/project_base.dir/link.txt
-<<<<<<< HEAD
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../project_base"
-=======
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../project_base"
->>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/luka/Desktop/2/Grafika-Projekat/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../project_base"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/project_base.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -136,10 +112,6 @@ CMakeFiles/project_base.dir/clean:
 .PHONY : CMakeFiles/project_base.dir/clean
 
 CMakeFiles/project_base.dir/depend:
-<<<<<<< HEAD
-	cd /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug/CMakeFiles/project_base.dir/DependInfo.cmake --color=$(COLOR)
-=======
-	cd /home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/luka/Desktop/1/Grafika-Projekat /home/luka/Desktop/1/Grafika-Projekat /home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug /home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug /home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug/CMakeFiles/project_base.dir/DependInfo.cmake --color=$(COLOR)
->>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
+	cd /home/luka/Desktop/2/Grafika-Projekat/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/luka/Desktop/2/Grafika-Projekat /home/luka/Desktop/2/Grafika-Projekat /home/luka/Desktop/2/Grafika-Projekat/cmake-build-debug /home/luka/Desktop/2/Grafika-Projekat/cmake-build-debug /home/luka/Desktop/2/Grafika-Projekat/cmake-build-debug/CMakeFiles/project_base.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/project_base.dir/depend
 

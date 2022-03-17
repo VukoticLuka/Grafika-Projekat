@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# Install script for directory: /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat
-=======
-# Install script for directory: /home/luka/Desktop/1/Grafika-Projekat
->>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
+# Install script for directory: /home/luka/Desktop/2/Grafika-Projekat
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -48,13 +44,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-<<<<<<< HEAD
-  include("/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug/libs/glad/cmake_install.cmake")
-  include("/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug/libs/imgui/cmake_install.cmake")
-=======
-  include("/home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug/libs/glad/cmake_install.cmake")
-  include("/home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug/libs/imgui/cmake_install.cmake")
->>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
+  include("/home/luka/Desktop/2/Grafika-Projekat/cmake-build-debug/libs/glad/cmake_install.cmake")
+  include("/home/luka/Desktop/2/Grafika-Projekat/cmake-build-debug/libs/imgui/cmake_install.cmake")
 
 endif()
 
@@ -66,9 +57,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-<<<<<<< HEAD
-file(WRITE "/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
-=======
-file(WRITE "/home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
->>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
+file(WRITE "/home/luka/Desktop/2/Grafika-Projekat/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

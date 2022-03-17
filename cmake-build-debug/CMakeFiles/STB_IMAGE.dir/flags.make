@@ -4,11 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-<<<<<<< HEAD
-CXX_INCLUDES = -I/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug/configuration -I/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/include
-=======
-CXX_INCLUDES = -I/home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug/configuration -I/home/luka/Desktop/1/Grafika-Projekat/include
->>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
+CXX_INCLUDES = -I/home/luka/Desktop/2/Grafika-Projekat/cmake-build-debug/configuration -I/home/luka/Desktop/2/Grafika-Projekat/include
 
 CXX_FLAGS = -Wall -Wextra -Wno-unused-variable -Wno-unused-parameter -O3 -g -std=gnu++14
 

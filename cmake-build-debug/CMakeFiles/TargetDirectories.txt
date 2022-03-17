@@ -1,23 +1,10 @@
-<<<<<<< HEAD
-/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug/CMakeFiles/project_base.dir
-/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug/CMakeFiles/STB_IMAGE.dir
-/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug/libs/glad/CMakeFiles/edit_cache.dir
-/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug/libs/glad/CMakeFiles/rebuild_cache.dir
-/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug/libs/glad/CMakeFiles/glad.dir
-/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug/libs/imgui/CMakeFiles/rebuild_cache.dir
-/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug/libs/imgui/CMakeFiles/edit_cache.dir
-/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug/libs/imgui/CMakeFiles/imgui.dir
-=======
-/home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug/CMakeFiles/project_base.dir
-/home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug/CMakeFiles/STB_IMAGE.dir
-/home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug/libs/glad/CMakeFiles/edit_cache.dir
-/home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug/libs/glad/CMakeFiles/rebuild_cache.dir
-/home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug/libs/glad/CMakeFiles/glad.dir
-/home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug/libs/imgui/CMakeFiles/rebuild_cache.dir
-/home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug/libs/imgui/CMakeFiles/edit_cache.dir
-/home/luka/Desktop/1/Grafika-Projekat/cmake-build-debug/libs/imgui/CMakeFiles/imgui.dir
->>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
+/home/luka/Desktop/2/Grafika-Projekat/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/luka/Desktop/2/Grafika-Projekat/cmake-build-debug/CMakeFiles/project_base.dir
+/home/luka/Desktop/2/Grafika-Projekat/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/luka/Desktop/2/Grafika-Projekat/cmake-build-debug/CMakeFiles/STB_IMAGE.dir
+/home/luka/Desktop/2/Grafika-Projekat/cmake-build-debug/libs/glad/CMakeFiles/edit_cache.dir
+/home/luka/Desktop/2/Grafika-Projekat/cmake-build-debug/libs/glad/CMakeFiles/rebuild_cache.dir
+/home/luka/Desktop/2/Grafika-Projekat/cmake-build-debug/libs/glad/CMakeFiles/glad.dir
+/home/luka/Desktop/2/Grafika-Projekat/cmake-build-debug/libs/imgui/CMakeFiles/rebuild_cache.dir
+/home/luka/Desktop/2/Grafika-Projekat/cmake-build-debug/libs/imgui/CMakeFiles/edit_cache.dir
+/home/luka/Desktop/2/Grafika-Projekat/cmake-build-debug/libs/imgui/CMakeFiles/imgui.dir

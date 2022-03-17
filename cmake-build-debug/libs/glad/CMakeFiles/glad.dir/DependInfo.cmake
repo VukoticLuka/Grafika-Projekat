@@ -8,11 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-<<<<<<< HEAD
-  "/home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/glad/src/glad.c" "libs/glad/CMakeFiles/glad.dir/src/glad.c.o" "gcc" "libs/glad/CMakeFiles/glad.dir/src/glad.c.o.d"
-=======
-  "/home/luka/Desktop/1/Grafika-Projekat/libs/glad/src/glad.c" "libs/glad/CMakeFiles/glad.dir/src/glad.c.o" "gcc" "libs/glad/CMakeFiles/glad.dir/src/glad.c.o.d"
->>>>>>> 7c1ec98a2edbf3229795e2a1fa4ab9dab8b3a6e3
+  "/home/luka/Desktop/2/Grafika-Projekat/libs/glad/src/glad.c" "libs/glad/CMakeFiles/glad.dir/src/glad.c.o" "gcc" "libs/glad/CMakeFiles/glad.dir/src/glad.c.o.d"
   )
 
 # Targets to which this target links.

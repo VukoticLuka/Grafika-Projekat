@@ -16,8 +16,6 @@
 
 #include <iostream>
 
-//komentar za probu gita
-// komentar za petu probu
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 
 void mouse_callback(GLFWwindow *window, double xpos, double ypos);
@@ -178,7 +176,6 @@ int main() {
     pointLight.ambient = glm::vec3(0.4f, 0.4f, 0.4f);
     pointLight.diffuse = glm::vec3(0.8, 0.8, 0.8);
     pointLight.specular = glm::vec3(1.0, 1.0, 1.0);
-
     pointLight.constant = 1.0f;
     pointLight.linear = 0.083f;
     pointLight.quadratic = 0.028f;
@@ -297,6 +294,22 @@ int main() {
 
         // don't forget to enable shader before setting uniforms
         ourShader.use();
+
+        glm::mat4 projection = glm::perspective(glm::radians(programState->camera.Zoom),
+                                                (float) SCR_WIDTH / (float) SCR_HEIGHT, 0.1f, 100.0f);
+        glm::mat4 view = programState->camera.GetViewMatrix();
+        ourShader.setMat4("projection", projection);
+        ourShader.setMat4("view", view);
+
+        glm::mat4 model = glm::mat4(1.0f);
+        model = glm::translate(model,
+                               programState->backpackPosition); // translate it down so it's at the center of the scene
+        model = glm::scale(model, glm::vec3(
+                programState->backpackScale));    // it's a bit too big for our scene, so scale it down
+        ourShader.setMat4("model", model);
+        ourModel.Draw(ourShader);
+
+
         pointLight.position = glm::vec3(4.0 * cos(currentFrame), 4.0f, 4.0 * sin(currentFrame));
         ourShader.setVec3("pointLight.position", pointLight.position);
         ourShader.setVec3("pointLight.ambient", pointLight.ambient);
@@ -306,22 +319,22 @@ int main() {
         ourShader.setFloat("pointLight.linear", pointLight.linear);
         ourShader.setFloat("pointLight.quadratic", pointLight.quadratic);
         ourShader.setVec3("viewPosition", programState->camera.Position);
-        ourShader.setFloat("material.shininess", 32.0f);
-        // view/projection transformations
-        glm::mat4 projection = glm::perspective(glm::radians(programState->camera.Zoom),
-                                                (float) SCR_WIDTH / (float) SCR_HEIGHT, 0.1f, 100.0f);
-        glm::mat4 view = programState->camera.GetViewMatrix();
-        ourShader.setMat4("projection", projection);
-        ourShader.setMat4("view", view);
+        ourShader.setFloat("material.shininess", 312.0f);
 
-        // render the loaded model
-        glm::mat4 model = glm::mat4(1.0f);
-        model = glm::translate(model,
-                               programState->backpackPosition); // translate it down so it's at the center of the scene
-        model = glm::scale(model, glm::vec3(
-                programState->backpackScale));    // it's a bit too big for our scene, so scale it down
-        ourShader.setMat4("model", model);
-        ourModel.Draw(ourShader);
+
+        // spotLight
+        ourShader.setVec3("spotLight.position", programState->camera.Position);
+        ourShader.setVec3("spotLight.direction", programState->camera.Front);
+        ourShader.setVec3("spotLight.ambient", 0.4f, 0.2f, 0.3f);
+        ourShader.setVec3("spotLight.diffuse", 1.0f, 1.0f, 1.0f);
+        ourShader.setVec3("spotLight.specular", 1.0f, 0.60f, 1.0f);
+        ourShader.setFloat("spotLight.constant", 1.0f);
+        ourShader.setFloat("spotLight.linear", 0.087);
+        ourShader.setFloat("spotLight.quadratic", 0.0552);
+        ourShader.setFloat("spotLight.cutOff", glm::cos(glm::radians(22.5f)));
+        ourShader.setFloat("spotLight.outerCutOff", glm::cos(glm::radians(24.0f)));
+        ourShader.setMat4("projection", projection);
+        ourShader.setMat4("view",view);
 
         //ovo obrisi ako ne valja
         // draw skybox as last
