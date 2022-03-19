@@ -1,8 +1,8 @@
 libs/imgui/CMakeFiles/imgui.dir/src/imgui_demo.cpp.o: \
- /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/imgui/src/imgui_demo.cpp \
+ /home/luka/Desktop/3/Grafika-Projekat/libs/imgui/src/imgui_demo.cpp \
  /usr/include/stdc-predef.h \
- /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/imgui/include/imgui.h \
- /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/imgui/include/imconfig.h \
+ /home/luka/Desktop/3/Grafika-Projekat/libs/imgui/include/imgui.h \
+ /home/luka/Desktop/3/Grafika-Projekat/libs/imgui/include/imconfig.h \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/float.h \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/stdarg.h \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h /usr/include/string.h \

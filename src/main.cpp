@@ -34,6 +34,9 @@ unsigned int loadTexture(const char* path);
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
 
+bool blinn = false;
+bool blinnKeyPressed = false;
+
 // camera
 
 float lastX = SCR_WIDTH / 2.0f;
@@ -143,7 +146,7 @@ int main() {
     }
 
     // tell stb_image.h to flip loaded texture's on the y-axis (before loading model).
-    //stbi_set_flip_vertically_on_load(true);
+    stbi_set_flip_vertically_on_load(true);
 
     programState = new ProgramState;
     programState->LoadFromFile("resources/program_state.txt");
@@ -312,6 +315,13 @@ int main() {
         earthShader.setMat4("projection", projection);
         earthShader.setMat4("view", view);
 
+        earthShader.setVec3("viewPos", programState->camera.Position);
+        earthShader.setVec3("lightPos", pointLight.position);
+        earthShader.setInt("blinn", blinn);
+
+
+        std::cout << (blinn ? "Blinn-Phong" : "Phong") << std::endl;
+
         //PLANET RENDER
 
         model = glm::mat4(1.0f);
@@ -457,6 +467,17 @@ void processInput(GLFWwindow *window) {
         programState->camera.ProcessKeyboard(LEFT, deltaTime);
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
         programState->camera.ProcessKeyboard(RIGHT, deltaTime);
+
+    if (glfwGetKey(window, GLFW_KEY_B) == GLFW_PRESS && !blinnKeyPressed)
+    {
+        blinn = !blinn;
+        blinnKeyPressed = true;
+    }
+    if (glfwGetKey(window, GLFW_KEY_B) == GLFW_RELEASE)
+    {
+        blinnKeyPressed = false;
+    }
+
 }
 
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes
