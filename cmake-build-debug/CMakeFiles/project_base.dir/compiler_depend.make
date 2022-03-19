@@ -37,6 +37,19 @@ CMakeFiles/project_base.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
   /usr/include/GLFW/glfw3.h \
   /usr/include/GL/gl.h \
+  ../include/stb_image.h \
+  /usr/include/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
   /usr/include/glm/glm.hpp \
   /usr/include/glm/detail/_fixes.hpp \
   /usr/include/c++/9/cmath \
@@ -309,9 +322,6 @@ CMakeFiles/project_base.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
-  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
   /usr/include/x86_64-linux-gnu/bits/wchar2.h \
   /usr/include/c++/9/bits/allocator.h \
   /usr/include/x86_64-linux-gnu/c++/9/bits/c++allocator.h \
@@ -359,15 +369,6 @@ CMakeFiles/project_base.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/c++/9/ext/string_conversions.h \
   /usr/include/c++/9/cstdlib \
   /usr/include/c++/9/cstdio \
-  /usr/include/stdio.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
-  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
-  /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
-  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
-  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
-  /usr/include/x86_64-linux-gnu/bits/stdio.h \
-  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
   /usr/include/c++/9/cerrno \
   /usr/include/errno.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
@@ -420,7 +421,6 @@ CMakeFiles/project_base.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/c++/9/bits/stl_bvector.h \
   /usr/include/c++/9/bits/vector.tcc \
   ../include/learnopengl/model.h \
-  ../include/stb_image.h \
   /usr/include/assimp/Importer.hpp \
   /usr/include/assimp/types.h \
   /usr/include/assimp/defs.h \
@@ -540,29 +540,11 @@ CMakeFiles/project_base.dir/src/main.cpp.o: ../src/main.cpp \
 
 ../include/learnopengl/camera.h:
 
-/usr/include/glm/detail/type_mat4x2.inl:
-
-/usr/include/glm/ext/matrix_double4x2.hpp:
-
-/usr/include/assimp/aabb.h:
-
-/usr/include/glm/ext/matrix_float3x4_precision.hpp:
-
-../src/main.cpp:
-
-/usr/include/glm/ext/matrix_float3x4.hpp:
-
 /usr/include/glm/ext/matrix_double3x4_precision.hpp:
 
 /usr/include/glm/vec2.hpp:
 
 /usr/include/glm/ext/matrix_float3x3_precision.hpp:
-
-/usr/include/glm/detail/func_geometric.inl:
-
-/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
-
-/usr/include/glm/detail/type_mat4x3.inl:
 
 /usr/include/c++/9/bits/algorithmfwd.h:
 
@@ -594,19 +576,13 @@ CMakeFiles/project_base.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/glm/detail/type_mat3x3.hpp:
 
+/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
+
 /usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
 
 /usr/include/glm/ext/quaternion_relational.inl:
 
-/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
-
 /usr/include/c++/9/fstream:
-
-/usr/include/glm/ext/matrix_float4x2.hpp:
-
-/usr/include/glm/ext/matrix_double3x3_precision.hpp:
-
-/usr/include/glm/detail/type_mat2x3.hpp:
 
 /usr/include/glm/detail/type_mat2x2.hpp:
 
@@ -634,17 +610,9 @@ CMakeFiles/project_base.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/glm/vec4.hpp:
 
-/usr/include/glm/ext/vector_int3.hpp:
-
-/usr/include/glm/ext/matrix_double4x2_precision.hpp:
-
 /usr/include/glm/matrix.hpp:
 
 /usr/include/glm/ext/vector_double3_precision.hpp:
-
-/usr/include/glm/ext/matrix_double3x2_precision.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/stdio.h:
 
 /usr/include/c++/9/cstdio:
 
@@ -656,10 +624,6 @@ CMakeFiles/project_base.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/glm/vec3.hpp:
 
-/usr/include/glm/detail/type_vec4.hpp:
-
-/usr/include/glm/ext/vector_uint2.hpp:
-
 /usr/include/glm/ext/vector_int2.hpp:
 
 /usr/include/glm/ext/vector_int1_precision.hpp:
@@ -667,10 +631,6 @@ CMakeFiles/project_base.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/glm/integer.hpp:
 
 /usr/include/locale.h:
-
-/usr/include/glm/ext/matrix_double3x2.hpp:
-
-/usr/include/glm/mat4x3.hpp:
 
 /usr/include/glm/ext/vector_float2_precision.hpp:
 
@@ -690,19 +650,9 @@ CMakeFiles/project_base.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/glm/ext/quaternion_double.hpp:
 
-/usr/include/glm/mat4x2.hpp:
-
-/usr/include/glm/detail/type_float.hpp:
-
-/usr/include/c++/9/backward/binders.h:
-
 /usr/include/c++/9/limits:
 
 /usr/include/c++/9/cfloat:
-
-/usr/include/x86_64-linux-gnu/sys/cdefs.h:
-
-/usr/include/c++/9/bits/codecvt.h:
 
 /usr/include/glm/ext/vector_double4.hpp:
 
@@ -712,67 +662,87 @@ CMakeFiles/project_base.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/glm/glm.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/select2.h:
+/usr/include/c++/9/bits/stl_algobase.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/9/include/syslimits.h:
+
+/usr/include/c++/9/cmath:
+
+/usr/include/c++/9/type_traits:
+
+/usr/include/glm/detail/type_mat3x3.inl:
+
+/usr/include/c++/9/bits/concept_check.h:
+
+/usr/include/c++/9/cassert:
+
+/usr/include/glm/vector_relational.hpp:
+
+/usr/include/glm/geometric.hpp:
+
+/usr/include/glm/ext/vector_bool1.hpp:
+
+/usr/include/glm/detail/setup.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h:
+
+/usr/include/glm/detail/type_mat4x4.inl:
+
+/usr/include/glm/ext/matrix_double2x3_precision.hpp:
+
+/usr/include/glm/fwd.hpp:
+
+/usr/include/alloca.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
+
+/usr/include/glm/detail/type_mat2x3.hpp:
+
+/usr/include/glm/ext/matrix_double3x3_precision.hpp:
 
 /usr/include/glm/ext/matrix_double2x4.hpp:
 
-/usr/include/c++/9/bits/stl_algobase.h:
+/usr/include/x86_64-linux-gnu/bits/select2.h:
 
-/usr/include/glm/detail/type_vec2.hpp:
+/usr/include/glm/detail/func_geometric.inl:
 
-/usr/include/glm/ext/matrix_float3x3.hpp:
+/usr/include/glm/ext/vector_int3.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/endianness.h:
+/usr/include/c++/9/bits/codecvt.h:
 
-/usr/include/endian.h:
-
-/usr/include/GL/gl.h:
-
-/usr/include/c++/9/bits/stl_heap.h:
-
-/usr/include/glm/ext/matrix_double2x3.hpp:
-
-/usr/include/x86_64-linux-gnu/c++/9/bits/basic_file.h:
-
-/usr/include/c++/9/sstream:
-
-/usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h:
-
-/usr/include/glm/detail/type_mat3x4.hpp:
-
-/usr/include/c++/9/bits/locale_classes.h:
-
-/usr/include/x86_64-linux-gnu/bits/mathinline.h:
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:
 
 ../include/common.h:
 
-/usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h:
+/usr/include/x86_64-linux-gnu/bits/mathinline.h:
 
-/usr/include/x86_64-linux-gnu/bits/endian.h:
+/usr/include/glm/ext/matrix_double4x2_precision.hpp:
 
-/usr/include/glm/ext/vector_uint3.hpp:
+/usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
 
-/usr/include/glm/ext/vector_double2.hpp:
+/usr/include/glm/detail/type_vec4.hpp:
 
-/usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h:
+/usr/include/glm/ext/vector_uint2.hpp:
 
-/usr/include/glm/ext/matrix_double4x3_precision.hpp:
+/usr/include/assimp/matrix3x3.h:
 
-/usr/include/x86_64-linux-gnu/bits/long-double.h:
-
-/usr/include/math.h:
-
-/usr/include/string.h:
-
-/usr/include/x86_64-linux-gnu/bits/time64.h:
-
-/usr/include/x86_64-linux-gnu/bits/sys_errlist.h:
+/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
 
 /usr/include/GLFW/glfw3.h:
 
 /usr/include/glm/ext/vector_float2.hpp:
 
 /usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h:
+
+/usr/include/x86_64-linux-gnu/bits/time64.h:
+
+/usr/include/x86_64-linux-gnu/bits/sys_errlist.h:
 
 /usr/include/features.h:
 
@@ -788,23 +758,25 @@ CMakeFiles/project_base.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/glm/ext/vector_int4.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/wordsize.h:
-
-/usr/include/x86_64-linux-gnu/bits/types.h:
-
 /usr/include/glm/ext/vector_bool2_precision.hpp:
 
 /usr/include/glm/ext/matrix_clip_space.hpp:
 
-/usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h:
-
 ../libs/imgui/include/imgui_impl_opengl3.h:
 
-/usr/include/c++/9/bits/cpp_type_traits.h:
+/usr/include/glm/ext/matrix_double2x4_precision.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/fp-fast.h:
+/usr/include/glm/detail/type_mat2x2.inl:
 
-/usr/include/glm/ext/matrix_double3x3.hpp:
+/usr/include/string.h:
+
+/usr/include/glm/ext/scalar_constants.hpp:
+
+/usr/include/glm/ext/matrix_double3x2_precision.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/stdio.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/FILE.h:
 
 /usr/include/glm/mat3x2.hpp:
 
@@ -812,29 +784,43 @@ CMakeFiles/project_base.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/glm/mat2x3.hpp:
 
-/usr/include/glm/ext/matrix_float4x2_precision.hpp:
+/usr/include/c++/9/bits/cpp_type_traits.h:
 
-../libs/imgui/include/imconfig.h:
+/usr/include/x86_64-linux-gnu/bits/fp-fast.h:
 
-/usr/include/glm/ext/matrix_double2x4_precision.hpp:
-
-/usr/include/glm/detail/type_mat2x2.inl:
-
-/usr/include/glm/ext/scalar_constants.hpp:
-
-/usr/include/c++/9/streambuf:
-
-/usr/lib/gcc/x86_64-linux-gnu/9/include/float.h:
-
-/usr/include/x86_64-linux-gnu/c++/9/bits/cpu_defines.h:
+/usr/include/glm/ext/matrix_double3x3.hpp:
 
 /usr/include/x86_64-linux-gnu/c++/9/bits/gthr.h:
+
+/usr/include/stdc-predef.h:
+
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
+
+../libs/glad/include/glad/glad.h:
+
+../src/main.cpp:
+
+/usr/include/assimp/aabb.h:
+
+/usr/include/glm/ext/matrix_float3x4_precision.hpp:
+
+/usr/include/glm/ext/matrix_double4x3_precision.hpp:
+
+/usr/include/glm/ext/vector_uint3.hpp:
+
+/usr/include/glm/ext/vector_double2.hpp:
+
+/usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h:
 
 /usr/include/glm/mat3x4.hpp:
 
 /usr/include/c++/9/ios:
 
 /usr/include/c++/9/bits/cxxabi_forced.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
+
+/usr/include/stdio.h:
 
 /usr/include/x86_64-linux-gnu/bits/timesize.h:
 
@@ -843,6 +829,14 @@ CMakeFiles/project_base.dir/src/main.cpp.o: ../src/main.cpp \
 ../include/stb_image.h:
 
 ../include/learnopengl/shader.h:
+
+/usr/include/x86_64-linux-gnu/bits/types.h:
+
+/usr/include/x86_64-linux-gnu/bits/wordsize.h:
+
+/usr/include/x86_64-linux-gnu/c++/9/bits/basic_file.h:
+
+/usr/include/c++/9/sstream:
 
 /usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
 
@@ -858,6 +852,14 @@ CMakeFiles/project_base.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/glm/ext/vector_bool1_precision.hpp:
 
+/usr/include/c++/9/bits/basic_ios.h:
+
+/usr/include/glm/gtc/matrix_transform.inl:
+
+/usr/include/GL/gl.h:
+
+/usr/include/endian.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
 
 /usr/include/glm/ext/vector_bool2.hpp:
@@ -870,14 +872,6 @@ CMakeFiles/project_base.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/assert.h:
 
-/usr/include/sched.h:
-
-/usr/include/glm/ext/matrix_float3x2.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/math-vector.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
-
 /usr/include/glm/ext/vector_int2_precision.hpp:
 
 /usr/include/glm/ext/matrix_float2x2_precision.hpp:
@@ -888,13 +882,99 @@ CMakeFiles/project_base.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/ctype.h:
 
-../libs/glad/include/glad/glad.h:
+/usr/include/glm/ext/vector_double2_precision.hpp:
 
-/usr/include/stdc-predef.h:
+/usr/include/c++/9/cstddef:
 
-/usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
+/usr/include/stdlib.h:
+
+/usr/include/glm/ext/vector_int1.hpp:
+
+/usr/include/c++/9/bits/localefwd.h:
+
+/usr/include/c++/9/ext/aligned_buffer.h:
+
+../libs/imgui/include/imgui_impl_glfw.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h:
+
+/usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
+
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
+
+/usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h:
+
+/usr/include/glm/detail/type_mat3x4.hpp:
+
+/usr/include/math.h:
+
+/usr/include/x86_64-linux-gnu/bits/long-double.h:
+
+/usr/include/c++/9/bits/locale_classes.h:
+
+/usr/include/c++/9/bits/stl_heap.h:
+
+/usr/include/glm/ext/matrix_double2x3.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h:
+
+/usr/include/x86_64-linux-gnu/bits/endian.h:
+
+/usr/include/x86_64-linux-gnu/c++/9/bits/cpu_defines.h:
+
+/usr/include/c++/9/cstdint:
+
+/usr/include/sched.h:
+
+/usr/include/glm/ext/matrix_float3x2.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/math-vector.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
+
+/usr/include/glm/detail/type_vec2.hpp:
+
+/usr/include/glm/ext/matrix_float3x3.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/endianness.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
+
+/usr/include/glm/ext/matrix_clip_space.inl:
+
+/usr/lib/gcc/x86_64-linux-gnu/9/include/limits.h:
+
+/usr/include/c++/9/ext/type_traits.h:
+
+/usr/include/x86_64-linux-gnu/bits/floatn.h:
+
+/usr/include/c++/9/bits/hash_bytes.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
+
+/usr/include/c++/9/bits/ptr_traits.h:
+
+/usr/include/glm/mat2x2.hpp:
+
+/usr/include/x86_64-linux-gnu/c++/9/bits/atomic_word.h:
+
+/usr/include/c++/9/algorithm:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
+
+/usr/include/glm/ext/vector_float3.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
 
 /usr/include/x86_64-linux-gnu/bits/fp-logb.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
 
 /usr/include/x86_64-linux-gnu/bits/select.h:
 
@@ -906,33 +986,7 @@ CMakeFiles/project_base.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/glm/ext/vector_double1_precision.hpp:
 
-/usr/include/stdlib.h:
-
-/usr/include/glm/ext/vector_double2_precision.hpp:
-
-/usr/include/c++/9/cstddef:
-
-/usr/include/glm/ext/vector_int1.hpp:
-
-/usr/include/c++/9/bits/localefwd.h:
-
 /usr/include/glm/ext/vector_int3_precision.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
-
-/usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
-
-/usr/include/glm/detail/type_mat3x3.inl:
-
-/usr/include/c++/9/bits/concept_check.h:
-
-/usr/include/c++/9/cassert:
-
-/usr/include/glm/vector_relational.hpp:
-
-/usr/include/glm/geometric.hpp:
-
-/usr/include/glm/ext/vector_bool1.hpp:
 
 /usr/include/glm/ext/vector_uint4.hpp:
 
@@ -949,10 +1003,6 @@ CMakeFiles/project_base.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/c++/9/debug/assertions.h:
 
 /usr/include/c++/9/exception:
-
-/usr/include/c++/9/cmath:
-
-/usr/include/c++/9/type_traits:
 
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
 
@@ -978,18 +1028,6 @@ CMakeFiles/project_base.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/string_fortified.h:
 
-/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
-
-/usr/include/c++/9/bits/ptr_traits.h:
-
-/usr/include/glm/mat2x2.hpp:
-
-/usr/include/x86_64-linux-gnu/c++/9/bits/atomic_word.h:
-
-/usr/include/glm/detail/type_mat4x2.hpp:
-
-/usr/include/x86_64-linux-gnu/gnu/stubs.h:
-
 /usr/include/c++/9/bits/stringfwd.h:
 
 /usr/include/c++/9/bits/basic_ios.tcc:
@@ -999,6 +1037,10 @@ CMakeFiles/project_base.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/glm/ext/quaternion_trigonometric.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h:
+
+/usr/include/glm/detail/func_integer.inl:
+
+/usr/include/glm/detail/type_vec3.inl:
 
 /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
 
@@ -1022,55 +1064,37 @@ CMakeFiles/project_base.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/c++/9/cwchar:
 
-/usr/include/glm/ext/matrix_double2x3_precision.hpp:
+/usr/include/glm/ext/matrix_float3x4.hpp:
 
-/usr/include/glm/fwd.hpp:
+/usr/include/glm/detail/type_float.hpp:
 
-/usr/include/alloca.h:
+/usr/include/c++/9/backward/binders.h:
 
-/usr/include/glm/detail/type_vec3.inl:
+/usr/include/glm/mat4x2.hpp:
 
-/usr/include/glm/detail/func_integer.inl:
+/usr/include/glm/ext/matrix_double4x2.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
+/usr/lib/gcc/x86_64-linux-gnu/9/include/float.h:
 
-/usr/include/c++/9/ext/aligned_buffer.h:
+/usr/include/c++/9/streambuf:
 
-../libs/imgui/include/imgui_impl_glfw.h:
+/usr/include/x86_64-linux-gnu/gnu/stubs.h:
 
-/usr/include/x86_64-linux-gnu/bits/stdlib.h:
+/usr/include/glm/detail/type_mat4x2.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h:
+/usr/include/glm/detail/type_mat4x2.inl:
 
-/usr/include/glm/detail/type_mat4x4.inl:
+/usr/include/glm/ext/matrix_float4x2.hpp:
 
-/usr/include/c++/9/algorithm:
+../libs/imgui/include/imconfig.h:
 
-/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
+/usr/include/glm/ext/matrix_float4x2_precision.hpp:
 
-/usr/include/glm/ext/vector_float3.hpp:
+/usr/include/glm/ext/matrix_double3x2.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
+/usr/include/glm/mat4x3.hpp:
 
-/usr/include/glm/detail/setup.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
-
-/usr/include/c++/9/cstdint:
-
-/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
-
-/usr/include/glm/ext/matrix_clip_space.inl:
-
-/usr/include/c++/9/ext/type_traits.h:
-
-/usr/include/x86_64-linux-gnu/bits/floatn.h:
-
-/usr/include/c++/9/bits/hash_bytes.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/9/include/limits.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/9/include/syslimits.h:
+/usr/include/glm/detail/type_mat4x3.inl:
 
 /usr/include/x86_64-linux-gnu/sys/select.h:
 
@@ -1146,16 +1170,6 @@ CMakeFiles/project_base.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/glm/ext/matrix_transform.hpp:
 
-/usr/include/c++/9/bits/basic_ios.h:
-
-/usr/include/glm/gtc/matrix_transform.inl:
-
-/usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
-
 /usr/include/glm/ext/vector_relational.inl:
 
 /usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
@@ -1164,9 +1178,9 @@ CMakeFiles/project_base.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/glm/ext/quaternion_geometric.inl:
 
-/usr/include/x86_64-linux-gnu/bits/time.h:
-
 /usr/include/c++/9/climits:
+
+/usr/include/x86_64-linux-gnu/bits/time.h:
 
 /usr/include/glm/ext/quaternion_common.inl:
 
@@ -1232,9 +1246,9 @@ CMakeFiles/project_base.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/c++/9/cwctype:
 
-/usr/include/x86_64-linux-gnu/bits/types/time_t.h:
-
 /usr/include/glm/simd/platform.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/time_t.h:
 
 /usr/include/c++/9/bits/stl_pair.h:
 
@@ -1255,14 +1269,6 @@ CMakeFiles/project_base.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/c++/9/bits/predefined_ops.h:
 
 /usr/include/wchar.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
-
-/usr/include/assimp/matrix3x3.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/FILE.h:
 
 /usr/include/c++/9/bits/uses_allocator.h:
 
@@ -1341,12 +1347,6 @@ CMakeFiles/project_base.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/glm/ext/vector_int4_precision.hpp:
 
 /usr/include/c++/9/cstdlib:
-
-/usr/include/stdio.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdio2.h:
 
 /usr/include/errno.h:
 

@@ -4,6 +4,7 @@
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <stb_image.h>
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -26,6 +27,9 @@ void processInput(GLFWwindow *window);
 
 void key_callback(GLFWwindow *window, int key, int scancode, int action, int mods);
 
+unsigned int loadCubemap(vector<string> faces);
+
+unsigned int loadTexture(const char* path);
 // settings
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
@@ -101,7 +105,7 @@ ProgramState *programState;
 
 void DrawImGui(ProgramState *programState);
 
-unsigned int loadCubemap(vector<string> faces);
+
 
 int main() {
     // inicijalizujemo glwf
@@ -139,7 +143,7 @@ int main() {
     }
 
     // tell stb_image.h to flip loaded texture's on the y-axis (before loading model).
-    stbi_set_flip_vertically_on_load(true);
+    //stbi_set_flip_vertically_on_load(true);
 
     programState = new ProgramState;
     programState->LoadFromFile("resources/program_state.txt");
@@ -160,18 +164,28 @@ int main() {
     // -----------------------------
     glEnable(GL_DEPTH_TEST);
 
+
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
     // build and compile shaders
     // -------------------------
-    Shader ourShader("resources/shaders/2.model_lighting.vs", "resources/shaders/2.model_lighting.fs");
+    Shader cubemapShader("resources/shaders/cubemaps.vs", "resources/shaders/cubemaps.fs");
+    Shader skyboxShader("resources/shaders/skybox.vs", "resources/shaders/skybox.fs");
+
+    //built shaders for models
+    Shader moonShader("resources/shaders/moon.vs", "resources/shaders/moon.fs");
+    Shader earthShader("resources/shaders/earth.vs", "resources/shaders/earth.fs");
+
+    stbi_set_flip_vertically_on_load(false);
 
     // load models
     // -----------
-    Model ourModel("resources/objects/planet/planet.obj");
-    //bio je ovaj model to sam zamenio
-    //Model ourModel("resources/objects/backpack/backpack.obj");
-    ourModel.SetShaderTextureNamePrefix("material.");
+    Model moonModel("resources/objects/Moon/Moon.obj");
+    moonModel.SetShaderTextureNamePrefix("material.");
 
-    PointLight &pointLight = programState->pointLight;
+    //atributes for moonModel
+
+    PointLight pointLight;
     pointLight.position = glm::vec3(0.0f, -3.0f, -56.0);
     pointLight.ambient = glm::vec3(0.4f, 0.4f, 0.4f);
     pointLight.diffuse = glm::vec3(0.8, 0.8, 0.8);
@@ -181,13 +195,10 @@ int main() {
     pointLight.quadratic = 0.028f;
 
 
-//odavde si dodavao cubemap
-
-    Shader shader("resources/shaders/cubemaps.vs" , "resources/shaders/cubemaps.fs");
-    Shader skyboxShader("resources/shaders/skybox.vs", "resources/shaders/skybox.fs");
+    Model earthModel("resources/objects/planet/planet.obj");
 
 
-
+    //verteksi za skybox
     float skyboxVertices[] = {
             // positions
             -1.0f,  1.0f, -1.0f,
@@ -259,19 +270,12 @@ int main() {
     unsigned int cubemapTexture = loadCubemap(faces);
 
     //shader configuration
-    shader.use();
-    shader.setInt("texture1", 0);
+    cubemapShader.use();
+    cubemapShader.setInt("texture1", 0);
 
     skyboxShader.use();
     skyboxShader.setInt("skybox", 0);
 
-
-    //do ovde si dodavao
-
-
-
-    // draw in wireframe
-    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
     // PETLJA RENDEROVANJA!!!
     //dokle god niko nije rekao da se prozor zatvori vrti se petlja
@@ -293,57 +297,84 @@ int main() {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         // don't forget to enable shader before setting uniforms
-        ourShader.use();
-
-        glm::mat4 projection = glm::perspective(glm::radians(programState->camera.Zoom),
-                                                (float) SCR_WIDTH / (float) SCR_HEIGHT, 0.1f, 100.0f);
-        glm::mat4 view = programState->camera.GetViewMatrix();
-        ourShader.setMat4("projection", projection);
-        ourShader.setMat4("view", view);
+        cubemapShader.use();
 
         glm::mat4 model = glm::mat4(1.0f);
-        model = glm::translate(model,
-                               programState->backpackPosition); // translate it down so it's at the center of the scene
-        model = glm::scale(model, glm::vec3(
-                programState->backpackScale));    // it's a bit too big for our scene, so scale it down
-        ourShader.setMat4("model", model);
-        ourModel.Draw(ourShader);
+        glm::mat4 view = programState->camera.GetViewMatrix();
+        glm::mat4 projection = glm::perspective(glm::radians(programState->camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 98.0f);
+        cubemapShader.setMat4("model", model);
+        cubemapShader.setMat4("view", view);
+        cubemapShader.setMat4("projection", projection);
 
+        glDepthFunc(GL_ALWAYS);
+
+        earthShader.use();
+        earthShader.setMat4("projection", projection);
+        earthShader.setMat4("view", view);
+
+        //PLANET RENDER
+
+        model = glm::mat4(1.0f);
+        model = glm::translate(model,glm::vec3(0.0f,-3.0f, -57.0f));
+        model = glm::scale(model,glm::vec3(0.81f,0.81f,0.81f));
+
+        earthShader.setMat4("model", model);
+        earthModel.Draw(earthShader);
+
+        glDepthFunc(GL_LESS);
+
+        moonShader.use();
+        //setting atributes for moon model
 
         pointLight.position = glm::vec3(4.0 * cos(currentFrame), 4.0f, 4.0 * sin(currentFrame));
-        ourShader.setVec3("pointLight.position", pointLight.position);
-        ourShader.setVec3("pointLight.ambient", pointLight.ambient);
-        ourShader.setVec3("pointLight.diffuse", pointLight.diffuse);
-        ourShader.setVec3("pointLight.specular", pointLight.specular);
-        ourShader.setFloat("pointLight.constant", pointLight.constant);
-        ourShader.setFloat("pointLight.linear", pointLight.linear);
-        ourShader.setFloat("pointLight.quadratic", pointLight.quadratic);
-        ourShader.setVec3("viewPosition", programState->camera.Position);
-        ourShader.setFloat("material.shininess", 312.0f);
+        moonShader.setVec3("pointLight.position", pointLight.position);
+        moonShader.setVec3("pointLight.ambient", pointLight.ambient);
+        moonShader.setVec3("pointLight.diffuse", pointLight.diffuse);
+        moonShader.setVec3("pointLight.specular", pointLight.specular);
+        moonShader.setFloat("pointLight.constant", pointLight.constant);
+        moonShader.setFloat("pointLight.linear", pointLight.linear);
+        moonShader.setFloat("pointLight.quadratic", pointLight.quadratic);
+        moonShader.setVec3("viewPosition", programState->camera.Position);
+        moonShader.setFloat("material.shininess", 612.0f);
 
 
         // spotLight
-        ourShader.setVec3("spotLight.position", programState->camera.Position);
-        ourShader.setVec3("spotLight.direction", programState->camera.Front);
-        ourShader.setVec3("spotLight.ambient", 0.4f, 0.2f, 0.3f);
-        ourShader.setVec3("spotLight.diffuse", 1.0f, 1.0f, 1.0f);
-        ourShader.setVec3("spotLight.specular", 1.0f, 0.60f, 1.0f);
-        ourShader.setFloat("spotLight.constant", 1.0f);
-        ourShader.setFloat("spotLight.linear", 0.087);
-        ourShader.setFloat("spotLight.quadratic", 0.0552);
-        ourShader.setFloat("spotLight.cutOff", glm::cos(glm::radians(22.5f)));
-        ourShader.setFloat("spotLight.outerCutOff", glm::cos(glm::radians(24.0f)));
-        ourShader.setMat4("projection", projection);
-        ourShader.setMat4("view",view);
+        moonShader.setVec3("spotLight.position", programState->camera.Position);
+        moonShader.setVec3("spotLight.direction", programState->camera.Front);
+        moonShader.setVec3("spotLight.ambient", 0.4f, 0.2f, 0.3f);
+        moonShader.setVec3("spotLight.diffuse", 1.0f, 1.0f, 1.0f);
+        moonShader.setVec3("spotLight.specular", 1.0f, 0.60f, 1.0f);
+        moonShader.setFloat("spotLight.constant", 1.0f);
+        moonShader.setFloat("spotLight.linear", 0.087);
+        moonShader.setFloat("spotLight.quadratic", 0.0552);
+        moonShader.setFloat("spotLight.cutOff", glm::cos(glm::radians(22.5f)));
+        moonShader.setFloat("spotLight.outerCutOff", glm::cos(glm::radians(24.0f)));
+        moonShader.setMat4("projection", projection);
+        moonShader.setMat4("view",view);
 
-        //ovo obrisi ako ne valja
-        // draw skybox as last
+
+        //variables for moon rotation
+
+        float moon_X = (sin(glfwGetTime()/11))*60;
+        float moon_Z = -57.0f+(cos(glfwGetTime()/10))*50;
+
+
+        //moon render
+
+        model = glm::mat4(1.0f);
+        model = glm::translate(model, glm::vec3(moon_X, -3.0f, moon_Z));
+        model = glm::scale(model, glm::vec3(0.2f, 0.2f, 0.2f));
+
+        moonShader.setMat4("model", model);
+        moonModel.Draw(moonShader);
+
+
+        // draw skybox
         glDepthFunc(GL_LEQUAL);  // change depth function so depth test passes when values are equal to depth buffer's content
         skyboxShader.use();
         view = glm::mat4(glm::mat3(programState->camera.GetViewMatrix())); // remove translation from the view matrix
         skyboxShader.setMat4("view", view);
         skyboxShader.setMat4("projection", projection);
-
 
 
         // skybox cube
@@ -458,6 +489,45 @@ void mouse_callback(GLFWwindow *window, double xpos, double ypos) {
 // ----------------------------------------------------------------------
 void scroll_callback(GLFWwindow *window, double xoffset, double yoffset) {
     programState->camera.ProcessMouseScroll(yoffset);
+}
+
+
+unsigned int loadTexture(const char* path){
+    unsigned int TextID;
+
+
+    glGenTextures(1, &TextID);
+
+    int width, height, nrComp;
+    unsigned char *data = stbi_load(path, &width, &height, &nrComp, 0);
+    if (data)
+    {
+        GLenum format;
+        if (nrComp == 1)
+            format = GL_RED;
+        else if (nrComp == 3)
+            format = GL_RGB;
+        else if (nrComp == 4)
+            format = GL_RGBA;
+
+        glBindTexture(GL_TEXTURE_2D, TextID);
+        glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+        stbi_image_free(data);
+    }
+    else
+    {
+        std::cout << "Texture failed to load at path: " << path << std::endl;
+        stbi_image_free(data);
+    }
+
+    return TextID;
 }
 
 void DrawImGui(ProgramState *programState) {

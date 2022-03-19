@@ -1,8 +1,8 @@
 CMakeFiles/project_base.dir/src/main.cpp.o: \
- /home/luka/Desktop/2/Grafika-Projekat/src/main.cpp \
+ /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/src/main.cpp \
  /usr/include/stdc-predef.h \
- /home/luka/Desktop/2/Grafika-Projekat/libs/imgui/include/imgui.h \
- /home/luka/Desktop/2/Grafika-Projekat/libs/imgui/include/imconfig.h \
+ /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/imgui/include/imgui.h \
+ /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/imgui/include/imconfig.h \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/float.h \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/stdarg.h \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h /usr/include/string.h \
@@ -18,10 +18,10 @@ CMakeFiles/project_base.dir/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
  /usr/include/assert.h \
- /home/luka/Desktop/2/Grafika-Projekat/libs/imgui/include/imgui_impl_glfw.h \
- /home/luka/Desktop/2/Grafika-Projekat/libs/imgui/include/imgui_impl_opengl3.h \
- /home/luka/Desktop/2/Grafika-Projekat/libs/glad/include/glad/glad.h \
- /home/luka/Desktop/2/Grafika-Projekat/libs/glad/include/KHR/khrplatform.h \
+ /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/imgui/include/imgui_impl_glfw.h \
+ /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/imgui/include/imgui_impl_opengl3.h \
+ /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/glad/include/glad/glad.h \
+ /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/libs/glad/include/KHR/khrplatform.h \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/timesize.h \
@@ -30,7 +30,19 @@ CMakeFiles/project_base.dir/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /usr/include/GLFW/glfw3.h /usr/include/GL/gl.h /usr/include/glm/glm.hpp \
+ /usr/include/GLFW/glfw3.h /usr/include/GL/gl.h \
+ /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/include/stb_image.h \
+ /usr/include/stdio.h /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio2.h /usr/include/glm/glm.hpp \
  /usr/include/glm/detail/_fixes.hpp /usr/include/c++/9/cmath \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \
@@ -242,7 +254,7 @@ CMakeFiles/project_base.dir/src/main.cpp.o: \
  /usr/include/glm/ext/vector_uint1.hpp \
  /usr/include/glm/ext/vector_uint1_precision.hpp \
  /usr/include/c++/9/cstring /usr/include/glm/gtc/type_ptr.inl \
- /home/luka/Desktop/2/Grafika-Projekat/include/learnopengl/filesystem.h \
+ /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/include/learnopengl/filesystem.h \
  /usr/include/c++/9/string /usr/include/c++/9/bits/stringfwd.h \
  /usr/include/c++/9/bits/memoryfwd.h \
  /usr/include/c++/9/bits/char_traits.h \
@@ -261,9 +273,6 @@ CMakeFiles/project_base.dir/src/main.cpp.o: \
  /usr/include/c++/9/bits/postypes.h /usr/include/c++/9/cwchar \
  /usr/include/wchar.h /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
  /usr/include/x86_64-linux-gnu/bits/wchar2.h \
  /usr/include/c++/9/bits/allocator.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++allocator.h \
@@ -301,23 +310,15 @@ CMakeFiles/project_base.dir/src/main.cpp.o: \
  /usr/include/c++/9/ext/alloc_traits.h \
  /usr/include/c++/9/bits/alloc_traits.h \
  /usr/include/c++/9/ext/string_conversions.h /usr/include/c++/9/cstdlib \
- /usr/include/c++/9/cstdio /usr/include/stdio.h \
- /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
- /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
- /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
- /usr/include/x86_64-linux-gnu/bits/stdio.h \
- /usr/include/x86_64-linux-gnu/bits/stdio2.h /usr/include/c++/9/cerrno \
- /usr/include/errno.h /usr/include/x86_64-linux-gnu/bits/errno.h \
- /usr/include/linux/errno.h /usr/include/x86_64-linux-gnu/asm/errno.h \
+ /usr/include/c++/9/cstdio /usr/include/c++/9/cerrno /usr/include/errno.h \
+ /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
+ /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/c++/9/bits/functional_hash.h \
  /usr/include/c++/9/bits/basic_string.tcc \
- /home/luka/Desktop/2/Grafika-Projekat/cmake-build-debug/configuration/root_directory.h \
- /home/luka/Desktop/2/Grafika-Projekat/include/learnopengl/shader.h \
+ /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/cmake-build-debug/configuration/root_directory.h \
+ /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/include/learnopengl/shader.h \
  /usr/include/c++/9/fstream /usr/include/c++/9/istream \
  /usr/include/c++/9/ios /usr/include/c++/9/bits/ios_base.h \
  /usr/include/c++/9/bits/locale_classes.h \
@@ -340,14 +341,13 @@ CMakeFiles/project_base.dir/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++io.h \
  /usr/include/c++/9/bits/fstream.tcc /usr/include/c++/9/sstream \
  /usr/include/c++/9/bits/sstream.tcc /usr/include/c++/9/iostream \
- /home/luka/Desktop/2/Grafika-Projekat/include/common.h \
- /home/luka/Desktop/2/Grafika-Projekat/include/learnopengl/camera.h \
+ /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/include/common.h \
+ /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/include/learnopengl/camera.h \
  /usr/include/c++/9/vector /usr/include/c++/9/bits/stl_construct.h \
  /usr/include/c++/9/bits/stl_uninitialized.h \
  /usr/include/c++/9/bits/stl_vector.h \
  /usr/include/c++/9/bits/stl_bvector.h /usr/include/c++/9/bits/vector.tcc \
- /home/luka/Desktop/2/Grafika-Projekat/include/learnopengl/model.h \
- /home/luka/Desktop/2/Grafika-Projekat/include/stb_image.h \
+ /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/include/learnopengl/model.h \
  /usr/include/assimp/Importer.hpp /usr/include/assimp/types.h \
  /usr/include/assimp/defs.h /usr/include/assimp/config.h \
  /usr/include/assimp/vector3.h /usr/include/assimp/vector2.h \
@@ -369,7 +369,7 @@ CMakeFiles/project_base.dir/src/main.cpp.o: \
  /usr/include/assimp/camera.h /usr/include/assimp/material.h \
  /usr/include/assimp/material.inl /usr/include/assimp/anim.h \
  /usr/include/assimp/metadata.h /usr/include/assimp/postprocess.h \
- /home/luka/Desktop/2/Grafika-Projekat/include/learnopengl/mesh.h \
+ /home/luka/Desktop/Grafika/Projeka/Grafika-Projekat/include/learnopengl/mesh.h \
  /usr/include/c++/9/map /usr/include/c++/9/bits/stl_tree.h \
  /usr/include/c++/9/ext/aligned_buffer.h \
  /usr/include/c++/9/bits/stl_map.h /usr/include/c++/9/tuple \
