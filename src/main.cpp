@@ -332,6 +332,12 @@ int main() {
         earthModel.Draw(earthShader);
 
         glDepthFunc(GL_LESS);
+
+        //using face-culling for the moon
+
+        glEnable(GL_CULL_FACE);
+        glCullFace(GL_BACK);
+
         moonShader.use();
         //setting atributes for moon model
 
@@ -377,6 +383,7 @@ int main() {
         moonShader.setMat4("model", model);
         moonModel.Draw(moonShader);
 
+        glDisable(GL_CULL_FACE);
 
         // draw skybox
         glDepthFunc(GL_LEQUAL);  // change depth function so depth test passes when values are equal to depth buffer's content
