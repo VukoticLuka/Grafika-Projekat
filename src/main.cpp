@@ -146,7 +146,7 @@ int main() {
     }
 
     // tell stb_image.h to flip loaded texture's on the y-axis (before loading model).
-    stbi_set_flip_vertically_on_load(true);
+    //stbi_set_flip_vertically_on_load(true);
 
     programState = new ProgramState;
     programState->LoadFromFile("resources/program_state.txt");
@@ -189,16 +189,16 @@ int main() {
     //atributes for moonModel
 
     PointLight pointLight;
-    pointLight.position = glm::vec3(0.0f, -3.0f, -56.0);
+    pointLight.position = glm::vec3(0.0f, -3.0f, -57.0);
     pointLight.ambient = glm::vec3(0.4f, 0.4f, 0.4f);
     pointLight.diffuse = glm::vec3(0.8, 0.8, 0.8);
     pointLight.specular = glm::vec3(1.0, 1.0, 1.0);
     pointLight.constant = 1.0f;
-    pointLight.linear = 0.083f;
-    pointLight.quadratic = 0.028f;
+    pointLight.linear = 0.009f;
+    pointLight.quadratic = 0.003f;
 
 
-    Model earthModel("resources/objects/planet/planet.obj");
+    Model earthModel("resources/objects/earth/Earth.obj");
 
 
     //verteksi za skybox
@@ -295,7 +295,7 @@ int main() {
 
         // renderovanje
         //postavljanje boje za ciscenje bafera
-        glClearColor(programState->clearColor.r, programState->clearColor.g, programState->clearColor.b, 1.0f);
+        glClearColor(0.2f, 0.1f, 0.1f, 1.0f);
         //sa ovim naredjujemo sta zelimo da ocistimo (ciscenje bafera)
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -304,7 +304,7 @@ int main() {
 
         glm::mat4 model = glm::mat4(1.0f);
         glm::mat4 view = programState->camera.GetViewMatrix();
-        glm::mat4 projection = glm::perspective(glm::radians(programState->camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 98.0f);
+        glm::mat4 projection = glm::perspective(glm::radians(programState->camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
         cubemapShader.setMat4("model", model);
         cubemapShader.setMat4("view", view);
         cubemapShader.setMat4("projection", projection);
@@ -326,13 +326,12 @@ int main() {
 
         model = glm::mat4(1.0f);
         model = glm::translate(model,glm::vec3(0.0f,-3.0f, -57.0f));
-        model = glm::scale(model,glm::vec3(0.81f,0.81f,0.81f));
+        model = glm::scale(model,glm::vec3(0.8f,0.8f,0.8f));
 
         earthShader.setMat4("model", model);
         earthModel.Draw(earthShader);
 
         glDepthFunc(GL_LESS);
-
         moonShader.use();
         //setting atributes for moon model
 
@@ -373,7 +372,7 @@ int main() {
 
         model = glm::mat4(1.0f);
         model = glm::translate(model, glm::vec3(moon_X, -3.0f, moon_Z));
-        model = glm::scale(model, glm::vec3(0.2f, 0.2f, 0.2f));
+        model = glm::scale(model, glm::vec3(0.21f, 0.21f, 0.21f));
 
         moonShader.setMat4("model", model);
         moonModel.Draw(moonShader);
