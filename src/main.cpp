@@ -192,15 +192,14 @@ int main() {
 
     //atributes for moonModel
 
-    PointLight pointLight;
-    pointLight.position = glm::vec3(1.0f, 1.0f, 1.0);
+    PointLight &pointLight = programState->pointLight;
+    pointLight.position = glm::vec3(0.0f, -9.0f, -26.0);
     pointLight.ambient = glm::vec3(0.4f, 0.4f, 0.4f);
     pointLight.diffuse = glm::vec3(0.8, 0.8, 0.8);
     pointLight.specular = glm::vec3(1.0, 1.0, 1.0);
     pointLight.constant = 1.0f;
-    pointLight.linear = 0.009f;
-    pointLight.quadratic = 0.06f;
-
+    pointLight.linear = 0.083f;
+    pointLight.quadratic = 0.028f;
 
     Model rock("resources/objects/rock/rock.obj");
     Model earthModel("resources/objects/earth/Earth.obj");
@@ -370,7 +369,8 @@ int main() {
 
         // renderovanje
         //postavljanje boje za ciscenje bafera
-        glClearColor(0.2f, 0.1f, 0.1f, 1.0f);
+        glClearColor(programState->clearColor.r, programState->clearColor.g, programState->clearColor.b, 1.0f);
+        //glClearColor(0.2f, 0.1f, 0.1f, 1.0f);
         //sa ovim naredjujemo sta zelimo da ocistimo (ciscenje bafera)
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -443,7 +443,7 @@ int main() {
         // draw planet
         model = glm::mat4(1.0f);
         model = glm::translate(model, glm::vec3(0.0f, -3.0f, -48.0f));
-        model = glm::scale(model, glm::vec3(0.8f, 0.8f, 0.8f));
+        model = glm::scale(model, glm::vec3(1.3f, 1.3f, 1.3f));
         earthShader.setMat4("model", model);
         earthModel.Draw(earthShader);
 
@@ -478,7 +478,7 @@ int main() {
         moonShader.setFloat("pointLight.linear", pointLight.linear);
         moonShader.setFloat("pointLight.quadratic", pointLight.quadratic);
         moonShader.setVec3("viewPosition", programState->camera.Position);
-        moonShader.setFloat("material.shininess", 612.0f);
+        moonShader.setFloat("material.shininess", 312.0f);
 
 
         // spotLight
@@ -489,12 +489,38 @@ int main() {
         moonShader.setVec3("spotLight.specular", 1.0f, 0.60f, 1.0f);
         moonShader.setFloat("spotLight.constant", 1.0f);
         moonShader.setFloat("spotLight.linear", 0.087);
-        moonShader.setFloat("spotLight.quadratic", 0.0352);
-        moonShader.setFloat("spotLight.cutOff", glm::cos(glm::radians(12.5f)));
-        moonShader.setFloat("spotLight.outerCutOff", glm::cos(glm::radians(15.0f)));
+        moonShader.setFloat("spotLight.quadratic", 0.0552);
+        moonShader.setFloat("spotLight.cutOff", glm::cos(glm::radians(22.5f)));
+        moonShader.setFloat("spotLight.outerCutOff", glm::cos(glm::radians(25.0f)));
         moonShader.setMat4("projection", projection);
         moonShader.setMat4("view",view);
 
+
+        pointLight.position = glm::vec3(4.0 * cos(currentFrame), 4.0f, 4.0 * sin(currentFrame));
+        earthShader.setVec3("pointLight.position", pointLight.position);
+        earthShader.setVec3("pointLight.ambient", pointLight.ambient);
+        earthShader.setVec3("pointLight.diffuse", pointLight.diffuse);
+        earthShader.setVec3("pointLight.specular", pointLight.specular);
+        earthShader.setFloat("pointLight.constant", pointLight.constant);
+        earthShader.setFloat("pointLight.linear", pointLight.linear);
+        earthShader.setFloat("pointLight.quadratic", pointLight.quadratic);
+        earthShader.setVec3("viewPosition", programState->camera.Position);
+        earthShader.setFloat("material.shininess", 312.0f);
+
+
+        // spotLight
+        earthShader.setVec3("spotLight.position", programState->camera.Position);
+        earthShader.setVec3("spotLight.direction", programState->camera.Front);
+        earthShader.setVec3("spotLight.ambient", 0.4f, 0.2f, 0.3f);
+        earthShader.setVec3("spotLight.diffuse", 1.0f, 1.0f, 1.0f);
+        earthShader.setVec3("spotLight.specular", 1.0f, 0.60f, 1.0f);
+        earthShader.setFloat("spotLight.constant", 1.0f);
+        earthShader.setFloat("spotLight.linear", 0.087);
+        earthShader.setFloat("spotLight.quadratic", 0.0552);
+        earthShader.setFloat("spotLight.cutOff", glm::cos(glm::radians(22.5f)));
+        earthShader.setFloat("spotLight.outerCutOff", glm::cos(glm::radians(25.0f)));
+        earthShader.setMat4("projection", projection);
+        earthShader.setMat4("view",view);
 
         //variables for moon rotation
 
@@ -506,7 +532,7 @@ int main() {
 
         model = glm::mat4(1.0f);
         model = glm::translate(model, glm::vec3(moon_X, -3.0f, moon_Z));
-        model = glm::scale(model, glm::vec3(0.21f, 0.21f, 0.21f));
+        model = glm::scale(model, glm::vec3(0.351f, 0.351f, 0.351f));
 
         moonShader.setMat4("model", model);
         moonModel.Draw(moonShader);
