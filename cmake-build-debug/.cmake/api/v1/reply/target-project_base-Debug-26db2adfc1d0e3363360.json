@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "/home/luka/Desktop/5/Grafika-Projekat/project_base"
+			"path" : "/home/luka/Desktop/Projekat/Grafika-Projekat/project_base"
 		}
 	],
 	"backtrace" : 1,
@@ -72,19 +72,19 @@
 			[
 				{
 					"backtrace" : 3,
-					"path" : "/home/luka/Desktop/5/Grafika-Projekat/cmake-build-debug/configuration"
+					"path" : "/home/luka/Desktop/Projekat/Grafika-Projekat/cmake-build-debug/configuration"
 				},
 				{
 					"backtrace" : 4,
-					"path" : "/home/luka/Desktop/5/Grafika-Projekat/include"
+					"path" : "/home/luka/Desktop/Projekat/Grafika-Projekat/include"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "/home/luka/Desktop/5/Grafika-Projekat/libs/glad/include"
+					"path" : "/home/luka/Desktop/Projekat/Grafika-Projekat/libs/glad/include"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "/home/luka/Desktop/5/Grafika-Projekat/libs/imgui/include"
+					"path" : "/home/luka/Desktop/Projekat/Grafika-Projekat/libs/imgui/include"
 				}
 			],
 			"language" : "CXX",

@@ -62,11 +62,11 @@
 			[
 				{
 					"backtrace" : 2,
-					"path" : "/home/luka/Desktop/5/Grafika-Projekat/cmake-build-debug/configuration"
+					"path" : "/home/luka/Desktop/Projekat/Grafika-Projekat/cmake-build-debug/configuration"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "/home/luka/Desktop/5/Grafika-Projekat/include"
+					"path" : "/home/luka/Desktop/Projekat/Grafika-Projekat/include"
 				}
 			],
 			"language" : "CXX",
