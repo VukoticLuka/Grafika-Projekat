@@ -325,7 +325,7 @@ int main() {
         //PLANET RENDER
 
         model = glm::mat4(1.0f);
-        model = glm::translate(model,glm::vec3(0.0f,-3.0f, -57.0f));
+        model = glm::translate(model,glm::vec3(0.0f,-3.0f, -48.0f));
         model = glm::scale(model,glm::vec3(0.8f,0.8f,0.8f));
 
         earthShader.setMat4("model", model);
@@ -361,16 +361,16 @@ int main() {
         moonShader.setVec3("spotLight.specular", 1.0f, 0.60f, 1.0f);
         moonShader.setFloat("spotLight.constant", 1.0f);
         moonShader.setFloat("spotLight.linear", 0.087);
-        moonShader.setFloat("spotLight.quadratic", 0.0552);
-        moonShader.setFloat("spotLight.cutOff", glm::cos(glm::radians(22.5f)));
-        moonShader.setFloat("spotLight.outerCutOff", glm::cos(glm::radians(24.0f)));
+        moonShader.setFloat("spotLight.quadratic", 0.0352);
+        moonShader.setFloat("spotLight.cutOff", glm::cos(glm::radians(12.5f)));
+        moonShader.setFloat("spotLight.outerCutOff", glm::cos(glm::radians(15.0f)));
         moonShader.setMat4("projection", projection);
         moonShader.setMat4("view",view);
 
 
         //variables for moon rotation
 
-        float moon_X = (sin(glfwGetTime()/11))*60;
+        float moon_X = (sin(glfwGetTime()/10))*60;
         float moon_Z = -57.0f+(cos(glfwGetTime()/10))*50;
 
 
