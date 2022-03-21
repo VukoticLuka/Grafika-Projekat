@@ -1,8 +1,8 @@
 libs/imgui/CMakeFiles/imgui.dir/src/imgui_draw.cpp.o: \
- /home/luka/Desktop/4/Grafika-Projekat/libs/imgui/src/imgui_draw.cpp \
+ /home/luka/Desktop/Projekat2/Grafika-Projekat/libs/imgui/src/imgui_draw.cpp \
  /usr/include/stdc-predef.h \
- /home/luka/Desktop/4/Grafika-Projekat/libs/imgui/include/imgui.h \
- /home/luka/Desktop/4/Grafika-Projekat/libs/imgui/include/imconfig.h \
+ /home/luka/Desktop/Projekat2/Grafika-Projekat/libs/imgui/include/imgui.h \
+ /home/luka/Desktop/Projekat2/Grafika-Projekat/libs/imgui/include/imconfig.h \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/float.h \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/stdarg.h \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h /usr/include/string.h \
@@ -18,7 +18,7 @@ libs/imgui/CMakeFiles/imgui.dir/src/imgui_draw.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
  /usr/include/assert.h \
- /home/luka/Desktop/4/Grafika-Projekat/libs/imgui/include/imgui_internal.h \
+ /home/luka/Desktop/Projekat2/Grafika-Projekat/libs/imgui/include/imgui_internal.h \
  /usr/include/stdio.h /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/timesize.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h \
@@ -88,6 +88,6 @@ libs/imgui/CMakeFiles/imgui.dir/src/imgui_draw.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
- /home/luka/Desktop/4/Grafika-Projekat/libs/imgui/include/imstb_textedit.h \
- /home/luka/Desktop/4/Grafika-Projekat/libs/imgui/include/imstb_rectpack.h \
- /home/luka/Desktop/4/Grafika-Projekat/libs/imgui/include/imstb_truetype.h
+ /home/luka/Desktop/Projekat2/Grafika-Projekat/libs/imgui/include/imstb_textedit.h \
+ /home/luka/Desktop/Projekat2/Grafika-Projekat/libs/imgui/include/imstb_rectpack.h \
+ /home/luka/Desktop/Projekat2/Grafika-Projekat/libs/imgui/include/imstb_truetype.h

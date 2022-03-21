@@ -412,7 +412,7 @@ int main() {
         earthModel.Draw(earthShader);
 
         // configure transformation matrices
-        projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 1000.0f);
+        projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
         view = programState->camera.GetViewMatrix();
         asteroidShader.use();
         asteroidShader.setMat4("projection", projection);
