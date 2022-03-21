@@ -178,8 +178,10 @@ int main() {
     //built shaders for models
     Shader moonShader("resources/shaders/moon.vs", "resources/shaders/moon.fs");
     Shader earthShader("resources/shaders/earth.vs", "resources/shaders/earth.fs");
+    //shader za asteroide
+    Shader asteroidShader("resources/shaders/rocks.vs", "resources/shaders/rocks.fs");
 
-    Shader asteroidShader("rocks.vs", "rocks.fs");
+    //Shader asteroidShader("resources/shaders/10.3.asteroids.vs", "resources/shaders/10.3.asteroids.fs");
 
     stbi_set_flip_vertically_on_load(false);
 
@@ -200,9 +202,9 @@ int main() {
     pointLight.quadratic = 0.06f;
 
 
+    Model rock("resources/objects/rock/rock.obj");
     Model earthModel("resources/objects/earth/Earth.obj");
 
-    Model rock(FileSystem::getPath("resources/objects/rock/rock.obj"));
 
 
     // generate a large list of semi-random model transformation matrices
@@ -256,28 +258,21 @@ int main() {
     {
         unsigned int VAO = rock.meshes[i].VAO;
         glBindVertexArray(VAO);
-
-        std::size_t vec4size = sizeof(glm::vec4);
         // set attribute pointers for matrix (4 times vec4)
-        //prva kolona
         glEnableVertexAttribArray(3);
         glVertexAttribPointer(3, 4, GL_FLOAT, GL_FALSE, sizeof(glm::mat4), (void*)0);
-        //druga kolona
         glEnableVertexAttribArray(4);
         glVertexAttribPointer(4, 4, GL_FLOAT, GL_FALSE, sizeof(glm::mat4), (void*)(sizeof(glm::vec4)));
-        //treca kolona
         glEnableVertexAttribArray(5);
         glVertexAttribPointer(5, 4, GL_FLOAT, GL_FALSE, sizeof(glm::mat4), (void*)(2 * sizeof(glm::vec4)));
-        //cetvrta kolona
         glEnableVertexAttribArray(6);
         glVertexAttribPointer(6, 4, GL_FLOAT, GL_FALSE, sizeof(glm::mat4), (void*)(3 * sizeof(glm::vec4)));
-        //kada ce azurirati ove atribute
-        //azuriramo po instanci
+
         glVertexAttribDivisor(3, 1);
         glVertexAttribDivisor(4, 1);
         glVertexAttribDivisor(5, 1);
         glVertexAttribDivisor(6, 1);
-        //deaktiviramo vrtex array
+
         glBindVertexArray(0);
     }
 
@@ -403,24 +398,55 @@ int main() {
         std::cout << (blinn ? "Blinn-Phong" : "Phong") << std::endl;
 
         //PLANET RENDER
+//
+//        model = glm::mat4(1.0f);
+//        model = glm::translate(model,glm::vec3(0.0f,-3.0f, -48.0f));
+//        model = glm::scale(model,glm::vec3(0.8f,0.8f,0.8f));
+//
+//        earthShader.setMat4("model", model);
+//        earthModel.Draw(earthShader);
+//
+//        // configure transformation matrices
+//        projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+//        view = programState->camera.GetViewMatrix();
+//        asteroidShader.use();
+//        asteroidShader.setMat4("projection", projection);
+//        asteroidShader.setMat4("view", view);
+//
+//
+//
+//        //asteroidi
+//
+//        // draw meteorites
+//        asteroidShader.use();
+//        asteroidShader.setInt("texture_diffuse1", 0);
+//        glActiveTexture(GL_TEXTURE0);
+//        glBindTexture(GL_TEXTURE_2D, rock.textures_loaded[0].id); // note: we also made the textures_loaded vector public (instead of private) from the model class.
+//        for (unsigned int i = 0; i < rock.meshes.size(); i++)
+//        {
+//            glBindVertexArray(rock.meshes[i].VAO);
+//            glDrawElementsInstanced(GL_TRIANGLES, rock.meshes[i].indices.size(), GL_UNSIGNED_INT, 0, amount);
+//            glBindVertexArray(0);
+//        }
 
-        model = glm::mat4(1.0f);
-        model = glm::translate(model,glm::vec3(0.0f,-3.0f, -48.0f));
-        model = glm::scale(model,glm::vec3(0.8f,0.8f,0.8f));
-
-        earthShader.setMat4("model", model);
-        earthModel.Draw(earthShader);
-
+        //renderovanje modela zemlje i asteroida
         // configure transformation matrices
-        projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+        projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 1000.0f);
         view = programState->camera.GetViewMatrix();
         asteroidShader.use();
         asteroidShader.setMat4("projection", projection);
         asteroidShader.setMat4("view", view);
+        earthShader.use();
+        earthShader.setMat4("projection", projection);
+        earthShader.setMat4("view", view);
 
+        // draw planet
+        model = glm::mat4(1.0f);
+        model = glm::translate(model, glm::vec3(0.0f, -3.0f, -48.0f));
+        model = glm::scale(model, glm::vec3(0.8f, 0.8f, 0.8f));
+        earthShader.setMat4("model", model);
+        earthModel.Draw(earthShader);
 
-
-        //meteori
         // draw meteorites
         asteroidShader.use();
         asteroidShader.setInt("texture_diffuse1", 0);
