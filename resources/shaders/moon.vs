@@ -11,10 +11,18 @@ uniform mat4 model;
 uniform mat4 view;
 uniform mat4 projection;
 
+uniform bool inverse_normals;
+
 void main()
 {
     FragPos = vec3(model * vec4(aPos,1.0));
     Normal = aNormal;
-    gl_Position = projection * view * model * vec4(aPos, 1.0);
     TexCoords = aTexCoords;
+
+    vec3 n = inverse_normals ? -aNormal : aNormal;
+    mat3 normalMatrix = transpose(inverse(mat3(model)));
+    Normal = normalize(normalMatrix * n);
+
+
+    gl_Position = projection * view * model * vec4(aPos, 1.0);
 }
