@@ -30,23 +30,23 @@ void key_callback(GLFWwindow *window, int key, int scancode, int action, int mod
 unsigned int loadCubemap(vector<string> faces);
 
 unsigned int loadTexture(const char* path);
-// settings
+
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
 
 bool blinn = false;
 bool blinnKeyPressed = false;
 
-// camera
-
+// kamera
 float lastX = SCR_WIDTH / 2.0f;
 float lastY = SCR_HEIGHT / 2.0f;
 bool firstMouse = true;
 
-// timing
+// vreme
 float deltaTime = 0.0f;
 float lastFrame = 0.0f;
 
+//point svetlo
 struct PointLight {
     glm::vec3 position;
     glm::vec3 ambient;
@@ -108,8 +108,6 @@ ProgramState *programState;
 
 void DrawImGui(ProgramState *programState);
 
-
-
 int main() {
     // inicijalizujemo glwf
     glfwInit();
@@ -124,9 +122,11 @@ int main() {
 
     // kreiramo prozor date sirine i visine
     GLFWwindow *window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
-    if (window == NULL) {//provera greske
+    if (window == NULL) {
+        //provera greske
         std::cout << "Failed to create GLFW window" << std::endl;
-        glfwTerminate();//deinicijalizacija glfwa
+        //deinicijalizacija glfwa
+        glfwTerminate();
         return EXIT_FAILURE;
     }
     //kazemo glwfu da hocemo da crta u tom nasem prozoru
@@ -145,53 +145,42 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    // tell stb_image.h to flip loaded texture's on the y-axis (before loading model).
-    //stbi_set_flip_vertically_on_load(true);
-
     programState = new ProgramState;
     programState->LoadFromFile("resources/program_state.txt");
     if (programState->ImGuiEnabled) {
         glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
     }
-    // Init Imgui
+    // Inicijalizacija Imgui-ja
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
     ImGuiIO &io = ImGui::GetIO();
     (void) io;
 
-
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init("#version 330 core");
 
-    // configure global opengl state
-    // -----------------------------
     glEnable(GL_DEPTH_TEST);
-
 
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
-    // build and compile shaders
-    // -------------------------
+
+    // shader za cubemap i skybox
     Shader cubemapShader("resources/shaders/cubemaps.vs", "resources/shaders/cubemaps.fs");
     Shader skyboxShader("resources/shaders/skybox.vs", "resources/shaders/skybox.fs");
 
-    //built shaders for models
+    //shaderi za modele
     Shader moonShader("resources/shaders/moon.vs", "resources/shaders/moon.fs");
     Shader earthShader("resources/shaders/earth.vs", "resources/shaders/earth.fs");
     //shader za asteroide
     Shader asteroidShader("resources/shaders/rocks.vs", "resources/shaders/rocks.fs");
 
-    //Shader asteroidShader("resources/shaders/10.3.asteroids.vs", "resources/shaders/10.3.asteroids.fs");
-
     stbi_set_flip_vertically_on_load(false);
 
-    // load models
-    // -----------
+    // ucitavanje modela
     Model moonModel("resources/objects/Moon/Moon.obj");
     moonModel.SetShaderTextureNamePrefix("material.");
 
-    //atributes for moonModel
-
+    //pointLight
     PointLight &pointLight = programState->pointLight;
     pointLight.position = glm::vec3(0.0f, -9.0f, -26.0);
     pointLight.ambient = glm::vec3(0.4f, 0.4f, 0.4f);
@@ -206,12 +195,11 @@ int main() {
 
 
 
-    // generate a large list of semi-random model transformation matrices
-    // ------------------------------------------------------------------
+    //instancing
     unsigned int amount = 100000;
     glm::mat4* modelMatrices;
     modelMatrices = new glm::mat4[amount];
-    srand(glfwGetTime()); // initialize random seed
+    srand(glfwGetTime());
     float radius = 150.0;
     float offset = 25.0f;
     for (unsigned int i = 0; i < amount; i++)
@@ -239,8 +227,6 @@ int main() {
         modelMatrices[i] = model;
     }
 
-
-    // configure instanced array
     // saljemo na graficku karticu
     unsigned int buffer;
     glGenBuffers(1, &buffer);
@@ -336,12 +322,12 @@ int main() {
     //load textures
     vector<std::string> faces
             {
-                    FileSystem::getPath("resources/textures/skybox/right-min.png"),
-                    FileSystem::getPath("resources/textures/skybox/left-min.png"),
-                    FileSystem::getPath("resources/textures/skybox/top-min.png"),
-                    FileSystem::getPath("resources/textures/skybox/bottom-min.png"),
-                    FileSystem::getPath("resources/textures/skybox/front-min.png"),
-                    FileSystem::getPath("resources/textures/skybox/back-min.png")
+                    FileSystem::getPath("resources/textures/skybox1/1.png"),
+                    FileSystem::getPath("resources/textures/skybox1/3.png"),
+                    FileSystem::getPath("resources/textures/skybox1/6.png"),
+                    FileSystem::getPath("resources/textures/skybox1/5.png"),
+                    FileSystem::getPath("resources/textures/skybox1/2.png"),
+                    FileSystem::getPath("resources/textures/skybox1/4.png")
             };
     stbi_set_flip_vertically_on_load(false);
     unsigned int cubemapTexture = loadCubemap(faces);
@@ -430,7 +416,6 @@ int main() {
 //        }
 
         //renderovanje modela zemlje i asteroida
-        // configure transformation matrices
         projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 1000.0f);
         view = programState->camera.GetViewMatrix();
         asteroidShader.use();
@@ -440,14 +425,12 @@ int main() {
         earthShader.setMat4("projection", projection);
         earthShader.setMat4("view", view);
 
-        // draw planet
         model = glm::mat4(1.0f);
         model = glm::translate(model, glm::vec3(0.0f, -3.0f, -48.0f));
         model = glm::scale(model, glm::vec3(1.3f, 1.3f, 1.3f));
         earthShader.setMat4("model", model);
         earthModel.Draw(earthShader);
 
-        // draw meteorites
         asteroidShader.use();
         asteroidShader.setInt("texture_diffuse1", 0);
         glActiveTexture(GL_TEXTURE0);
@@ -467,7 +450,6 @@ int main() {
         glCullFace(GL_BACK);
 
         moonShader.use();
-        //setting atributes for moon model
 
         pointLight.position = glm::vec3(4.0 * cos(currentFrame), 4.0f, 4.0 * sin(currentFrame));
         moonShader.setVec3("pointLight.position", pointLight.position);
@@ -628,6 +610,7 @@ void processInput(GLFWwindow *window) {
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
         programState->camera.ProcessKeyboard(RIGHT, deltaTime);
 
+    //blinn na dugme B
     if (glfwGetKey(window, GLFW_KEY_B) == GLFW_PRESS && !blinnKeyPressed)
     {
         blinn = !blinn;
