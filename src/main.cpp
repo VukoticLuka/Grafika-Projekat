@@ -384,6 +384,7 @@ int main() {
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 
     //load textures
+    /*
     vector<std::string> faces
             {
                     FileSystem::getPath("resources/textures/skybox/right-min.png"),
@@ -392,6 +393,16 @@ int main() {
                     FileSystem::getPath("resources/textures/skybox/bottom-min.png"),
                     FileSystem::getPath("resources/textures/skybox/front-min.png"),
                     FileSystem::getPath("resources/textures/skybox/back-min.png")
+            };
+            */
+    vector<std::string> faces
+            {
+                    FileSystem::getPath("resources/textures/skybox2/corona_lf.png"),
+                    FileSystem::getPath("resources/textures/skybox2/corona_rt.png"),
+                    FileSystem::getPath("resources/textures/skybox2/corona_up.png"),
+                    FileSystem::getPath("resources/textures/skybox2/corona_dn.png"),
+                    FileSystem::getPath("resources/textures/skybox2/corona_ft.png"),
+                    FileSystem::getPath("resources/textures/skybox2/corona_bk.png")
             };
     stbi_set_flip_vertically_on_load(false);
     unsigned int cubemapTexture = loadCubemap(faces);
@@ -453,37 +464,6 @@ int main() {
         earthShader.setMat4("model", model);
         earthModel.Draw(earthShader);
 
-        //PLANET RENDER
-//
-//        model = glm::mat4(1.0f);
-//        model = glm::translate(model,glm::vec3(0.0f,-3.0f, -48.0f));
-//        model = glm::scale(model,glm::vec3(0.8f,0.8f,0.8f));
-//
-//        earthShader.setMat4("model", model);
-//        earthModel.Draw(earthShader);
-//
-//        // configure transformation matrices
-//        projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-//        view = programState->camera.GetViewMatrix();
-//        asteroidShader.use();
-//        asteroidShader.setMat4("projection", projection);
-//        asteroidShader.setMat4("view", view);
-//
-//
-//
-//        //asteroidi
-//
-//        // draw meteorites
-//        asteroidShader.use();
-//        asteroidShader.setInt("texture_diffuse1", 0);
-//        glActiveTexture(GL_TEXTURE0);
-//        glBindTexture(GL_TEXTURE_2D, rock.textures_loaded[0].id); // note: we also made the textures_loaded vector public (instead of private) from the model class.
-//        for (unsigned int i = 0; i < rock.meshes.size(); i++)
-//        {
-//            glBindVertexArray(rock.meshes[i].VAO);
-//            glDrawElementsInstanced(GL_TRIANGLES, rock.meshes[i].indices.size(), GL_UNSIGNED_INT, 0, amount);
-//            glBindVertexArray(0);
-//        }
 
         //renderovanje modela zemlje i asteroida
         projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 1000.0f);
@@ -520,7 +500,7 @@ int main() {
         moonShader.setFloat("pointLight.linear", pointLight.linear);
         moonShader.setFloat("pointLight.quadratic", pointLight.quadratic);
         moonShader.setVec3("viewPosition", programState->camera.Position);
-        moonShader.setFloat("material.shininess", 520.0f);
+        moonShader.setFloat("material.shininess", 1000.0f);
 
 
         // spotLight

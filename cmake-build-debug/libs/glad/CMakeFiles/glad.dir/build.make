@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/184/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/luka/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/184/bin/cmake/linux/bin/cmake -E rm -f
+RM = /home/luka/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/luka/Desktop/7/Grafika-Projekat
+CMAKE_SOURCE_DIR = /home/luka/Desktop/Projekat/Grafika-Projekat
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/luka/Desktop/7/Grafika-Projekat/cmake-build-debug
+CMAKE_BINARY_DIR = /home/luka/Desktop/Projekat/Grafika-Projekat/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include libs/glad/CMakeFiles/glad.dir/depend.make
@@ -72,16 +72,16 @@ include libs/glad/CMakeFiles/glad.dir/flags.make
 libs/glad/CMakeFiles/glad.dir/src/glad.c.o: libs/glad/CMakeFiles/glad.dir/flags.make
 libs/glad/CMakeFiles/glad.dir/src/glad.c.o: ../libs/glad/src/glad.c
 libs/glad/CMakeFiles/glad.dir/src/glad.c.o: libs/glad/CMakeFiles/glad.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/luka/Desktop/7/Grafika-Projekat/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object libs/glad/CMakeFiles/glad.dir/src/glad.c.o"
-	cd /home/luka/Desktop/7/Grafika-Projekat/cmake-build-debug/libs/glad && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT libs/glad/CMakeFiles/glad.dir/src/glad.c.o -MF CMakeFiles/glad.dir/src/glad.c.o.d -o CMakeFiles/glad.dir/src/glad.c.o -c /home/luka/Desktop/7/Grafika-Projekat/libs/glad/src/glad.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/luka/Desktop/Projekat/Grafika-Projekat/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object libs/glad/CMakeFiles/glad.dir/src/glad.c.o"
+	cd /home/luka/Desktop/Projekat/Grafika-Projekat/cmake-build-debug/libs/glad && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT libs/glad/CMakeFiles/glad.dir/src/glad.c.o -MF CMakeFiles/glad.dir/src/glad.c.o.d -o CMakeFiles/glad.dir/src/glad.c.o -c /home/luka/Desktop/Projekat/Grafika-Projekat/libs/glad/src/glad.c
 
 libs/glad/CMakeFiles/glad.dir/src/glad.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glad.dir/src/glad.c.i"
-	cd /home/luka/Desktop/7/Grafika-Projekat/cmake-build-debug/libs/glad && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/luka/Desktop/7/Grafika-Projekat/libs/glad/src/glad.c > CMakeFiles/glad.dir/src/glad.c.i
+	cd /home/luka/Desktop/Projekat/Grafika-Projekat/cmake-build-debug/libs/glad && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/luka/Desktop/Projekat/Grafika-Projekat/libs/glad/src/glad.c > CMakeFiles/glad.dir/src/glad.c.i
 
 libs/glad/CMakeFiles/glad.dir/src/glad.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glad.dir/src/glad.c.s"
-	cd /home/luka/Desktop/7/Grafika-Projekat/cmake-build-debug/libs/glad && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/luka/Desktop/7/Grafika-Projekat/libs/glad/src/glad.c -o CMakeFiles/glad.dir/src/glad.c.s
+	cd /home/luka/Desktop/Projekat/Grafika-Projekat/cmake-build-debug/libs/glad && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/luka/Desktop/Projekat/Grafika-Projekat/libs/glad/src/glad.c -o CMakeFiles/glad.dir/src/glad.c.s
 
 # Object files for target glad
 glad_OBJECTS = \
@@ -93,19 +93,19 @@ glad_EXTERNAL_OBJECTS =
 libs/glad/libglad.a: libs/glad/CMakeFiles/glad.dir/src/glad.c.o
 libs/glad/libglad.a: libs/glad/CMakeFiles/glad.dir/build.make
 libs/glad/libglad.a: libs/glad/CMakeFiles/glad.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/luka/Desktop/7/Grafika-Projekat/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libglad.a"
-	cd /home/luka/Desktop/7/Grafika-Projekat/cmake-build-debug/libs/glad && $(CMAKE_COMMAND) -P CMakeFiles/glad.dir/cmake_clean_target.cmake
-	cd /home/luka/Desktop/7/Grafika-Projekat/cmake-build-debug/libs/glad && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/glad.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/luka/Desktop/Projekat/Grafika-Projekat/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libglad.a"
+	cd /home/luka/Desktop/Projekat/Grafika-Projekat/cmake-build-debug/libs/glad && $(CMAKE_COMMAND) -P CMakeFiles/glad.dir/cmake_clean_target.cmake
+	cd /home/luka/Desktop/Projekat/Grafika-Projekat/cmake-build-debug/libs/glad && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/glad.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 libs/glad/CMakeFiles/glad.dir/build: libs/glad/libglad.a
 .PHONY : libs/glad/CMakeFiles/glad.dir/build
 
 libs/glad/CMakeFiles/glad.dir/clean:
-	cd /home/luka/Desktop/7/Grafika-Projekat/cmake-build-debug/libs/glad && $(CMAKE_COMMAND) -P CMakeFiles/glad.dir/cmake_clean.cmake
+	cd /home/luka/Desktop/Projekat/Grafika-Projekat/cmake-build-debug/libs/glad && $(CMAKE_COMMAND) -P CMakeFiles/glad.dir/cmake_clean.cmake
 .PHONY : libs/glad/CMakeFiles/glad.dir/clean
 
 libs/glad/CMakeFiles/glad.dir/depend:
-	cd /home/luka/Desktop/7/Grafika-Projekat/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/luka/Desktop/7/Grafika-Projekat /home/luka/Desktop/7/Grafika-Projekat/libs/glad /home/luka/Desktop/7/Grafika-Projekat/cmake-build-debug /home/luka/Desktop/7/Grafika-Projekat/cmake-build-debug/libs/glad /home/luka/Desktop/7/Grafika-Projekat/cmake-build-debug/libs/glad/CMakeFiles/glad.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/luka/Desktop/Projekat/Grafika-Projekat/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/luka/Desktop/Projekat/Grafika-Projekat /home/luka/Desktop/Projekat/Grafika-Projekat/libs/glad /home/luka/Desktop/Projekat/Grafika-Projekat/cmake-build-debug /home/luka/Desktop/Projekat/Grafika-Projekat/cmake-build-debug/libs/glad /home/luka/Desktop/Projekat/Grafika-Projekat/cmake-build-debug/libs/glad/CMakeFiles/glad.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : libs/glad/CMakeFiles/glad.dir/depend
 
