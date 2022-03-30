@@ -1,7 +1,7 @@
 CMakeFiles/STB_IMAGE.dir/libs/stb_image.cpp.o: \
- /home/luka/Desktop/Projekat/Grafika-Projekat/libs/stb_image.cpp \
+ /home/luka/Desktop/8/Grafika-Projekat/libs/stb_image.cpp \
  /usr/include/stdc-predef.h \
- /home/luka/Desktop/Projekat/Grafika-Projekat/include/stb_image.h \
+ /home/luka/Desktop/8/Grafika-Projekat/include/stb_image.h \
  /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \

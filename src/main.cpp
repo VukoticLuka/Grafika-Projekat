@@ -187,7 +187,7 @@ int main() {
     // build and compile shaders
     // -------------------------shaderi za hdr
 //    Shader shader("resources/shaders/6.lighting.vs", "resources/shaders/6.lighting.fs");
-//    Shader hdrShader("resources/shaders/6.hdr.vs", "resources/shaders/6.hdr.fs");
+    Shader hdrShader("resources/shaders/6.hdr.vs", "resources/shaders/6.hdr.fs");
 
 
 
@@ -236,27 +236,25 @@ int main() {
         std::cout << "Framebuffer not complete!" << std::endl;
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
-    // lighting info
-    // -------------
-    // positions
-//    std::vector<glm::vec3> lightPositions;
-//    lightPositions.push_back(glm::vec3( 0.0f,  0.0f, 49.5f)); // back light
-//    lightPositions.push_back(glm::vec3(-1.4f, -1.9f, 9.0f));
-//    lightPositions.push_back(glm::vec3( 0.0f, -1.8f, 4.0f));
-//    lightPositions.push_back(glm::vec3( 0.8f, -1.7f, 6.0f));
-//    // colors
-//    std::vector<glm::vec3> lightColors;
-//    lightColors.push_back(glm::vec3(200.0f, 200.0f, 200.0f));
-//    lightColors.push_back(glm::vec3(0.1f, 0.0f, 0.0f));
-//    lightColors.push_back(glm::vec3(0.0f, 0.0f, 0.2f));
-//    lightColors.push_back(glm::vec3(0.0f, 0.1f, 0.0f));
-//
-//    // shader configuration
-//    // --------------------
-//    shader.use();
-//    shader.setInt("diffuseTexture", 0);
-//    hdrShader.use();
-//    hdrShader.setInt("hdrBuffer", 0);
+    //primer vise izvora svetlosti
+    std::vector<glm::vec3> lightPositions;
+    lightPositions.push_back(glm::vec3( 0.0f,  0.0f, 49.5f)); // back light
+    lightPositions.push_back(glm::vec3(-1.4f, -1.9f, 9.0f));
+    lightPositions.push_back(glm::vec3( 0.0f, -1.8f, 4.0f));
+    lightPositions.push_back(glm::vec3( 0.8f, -1.7f, 6.0f));
+    // colors
+    std::vector<glm::vec3> lightColors;
+    lightColors.push_back(glm::vec3(200.0f, 200.0f, 200.0f));
+    lightColors.push_back(glm::vec3(0.1f, 0.0f, 0.0f));
+    lightColors.push_back(glm::vec3(0.0f, 0.0f, 0.2f));
+    lightColors.push_back(glm::vec3(0.0f, 0.1f, 0.0f));
+
+    // shader configuration
+    // --------------------
+    moonShader.use();
+    moonShader.setInt("diffuseTexture", 0);
+    hdrShader.use();
+    hdrShader.setInt("hdrBuffer", 0);
 
 
     //instancing
@@ -383,7 +381,7 @@ int main() {
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 
-    //load textures
+    //drugi skybox
     /*
     vector<std::string> faces
             {
@@ -556,36 +554,36 @@ int main() {
         //do ovde brisi
         if (programState->ImGuiEnabled)
             DrawImGui(programState);
-//
-//        //HDR
+
+        //HDR
 //        // 1. render scene into floating point framebuffer
 //        // -----------------------------------------------
 //        glBindFramebuffer(GL_FRAMEBUFFER, hdrFBO);
 //        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 //        projection = glm::perspective(glm::radians(programState->camera.Zoom), (GLfloat)SCR_WIDTH / (GLfloat)SCR_HEIGHT, 0.1f, 100.0f);
 //        view = programState->camera.GetViewMatrix();
-//        shader.use();
-//        shader.setMat4("projection", projection);
-//        shader.setMat4("view", view);
+//        moonShader.use();
+//        moonShader.setMat4("projection", projection);
+//        moonShader.setMat4("view", view);
 //        glActiveTexture(GL_TEXTURE0);
 //        //glBindTexture(GL_TEXTURE_2D, woodTexture);
 //        // set lighting uniforms
 //        for (unsigned int i = 0; i < lightPositions.size(); i++)
 //        {
-//            shader.setVec3("lights[" + std::to_string(i) + "].Position", lightPositions[i]);
-//            shader.setVec3("lights[" + std::to_string(i) + "].Color", lightColors[i]);
+//            moonShader.setVec3("lights[" + std::to_string(i) + "].Position", lightPositions[i]);
+//            moonShader.setVec3("lights[" + std::to_string(i) + "].Color", lightColors[i]);
 //        }
-//        shader.setVec3("viewPos", programState->camera.Position);
-//        // render tunnel
+//        moonShader.setVec3("viewPos", programState->camera.Position);
+        // render tunnel
 //        model = glm::mat4(1.0f);
 //        model = glm::translate(model, glm::vec3(0.0f, 0.0f, 25.0));
 //        model = glm::scale(model, glm::vec3(2.5f, 2.5f, 27.5f));
-//        shader.setMat4("model", model);
-//        shader.setInt("inverse_normals", true);
-//        renderCube();
+//        moonShader.setMat4("model", model);
+//        moonShader.setInt("inverse_normals", true);
+//        //renderCube();
 //        glBindFramebuffer(GL_FRAMEBUFFER, 0);
 //
-//        // 2. now render floating point color buffer to 2D quad and tonemap HDR colors to default framebuffer's (clamped) color range
+        // 2. now render floating point color buffer to 2D quad and tonemap HDR colors to default framebuffer's (clamped) color range
 //        // --------------------------------------------------------------------------------------------------------------------------
 //        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 //        hdrShader.use();
@@ -593,10 +591,10 @@ int main() {
 //        glBindTexture(GL_TEXTURE_2D, colorBuffer);
 //        hdrShader.setInt("hdr", hdr);
 //        hdrShader.setFloat("exposure", exposure);
-//        renderQuad();
+//        //renderQuad();
 //
 //        std::cout << "hdr: " << (hdr ? "on" : "off") << "| exposure: " << exposure << std::endl;
-//
+
 
 
 
