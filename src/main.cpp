@@ -31,11 +31,10 @@ void key_callback(GLFWwindow *window, int key, int scancode, int action, int mod
 unsigned int loadCubemap(vector<string> faces);
 
 unsigned int loadTexture(const char* path);
-
+//ssao/hdr
 void renderCube();
-
 void renderQuad();
-
+//ssao
 float lerp(float a, float b, float f);
 
 const unsigned int SCR_WIDTH = 800;
@@ -48,7 +47,6 @@ bool blinnKeyPressed = false;
 bool hdr = true;
 bool hdrKeyPressed = false;
 float exposure = 1.0f;
-
 
 // kamera
 float lastX = SCR_WIDTH / 2.0f;
@@ -65,7 +63,6 @@ struct PointLight {
     glm::vec3 ambient;
     glm::vec3 diffuse;
     glm::vec3 specular;
-
     float constant;
     float linear;
     float quadratic;
@@ -181,28 +178,23 @@ int main() {
     Shader cubemapShader("resources/shaders/cubemaps.vs", "resources/shaders/cubemaps.fs");
     Shader skyboxShader("resources/shaders/skybox.vs", "resources/shaders/skybox.fs");
 
-    //shaderi za modele
+    //shaderi za mesec i zemlju
     Shader moonShader("resources/shaders/moon.vs", "resources/shaders/moon.fs");
     Shader earthShader("resources/shaders/earth.vs", "resources/shaders/earth.fs");
     //shader za asteroide
     Shader asteroidShader("resources/shaders/rocks.vs", "resources/shaders/rocks.fs");
 
-    // build and compile shaders
-    // -------------------------shaderi za hdr
-//    Shader shader("resources/shaders/6.lighting.vs", "resources/shaders/6.lighting.fs");
-    Shader hdrShader("resources/shaders/6.hdr.vs", "resources/shaders/6.hdr.fs");
+    //shaderi za hdr
+    //Shader shader("resources/shaders/6.lighting.vs", "resources/shaders/6.lighting.fs");
+    //Shader hdrShader("resources/shaders/6.hdr.vs", "resources/shaders/6.hdr.fs");
 
-
-    // build and compile shaders
-    // -------------------------
+    // build and compile shaders for SSAO
     Shader shaderGeometryPass("resources/shaders/ssao_geometry.vs", "resources/shaders/ssao_geometry.fs");
     Shader shaderLightingPass("resources/shaders/ssao.vs", "resources/shaders/ssao_lighting.fs");
     Shader shaderSSAO("resources/shaders/ssao.vs", "resources/shaders/ssao.fs");
     Shader shaderSSAOBlur("resources/shaders/ssao.vs", "resources/shaders/ssao_blur.fs");
 
     //SSAO
-    // configure g-buffer framebuffer
-    // ------------------------------
     unsigned int gBuffer;
     glGenFramebuffers(1, &gBuffer);
     glBindFramebuffer(GL_FRAMEBUFFER, gBuffer);
@@ -245,7 +237,6 @@ int main() {
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
     // also create framebuffer to hold SSAO processing stage
-    // -----------------------------------------------------
     unsigned int ssaoFBO, ssaoBlurFBO;
     glGenFramebuffers(1, &ssaoFBO);  glGenFramebuffers(1, &ssaoBlurFBO);
     glBindFramebuffer(GL_FRAMEBUFFER, ssaoFBO);
@@ -271,10 +262,9 @@ int main() {
         std::cout << "SSAO Blur Framebuffer not complete!" << std::endl;
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
-
     stbi_set_flip_vertically_on_load(false);
 
-    // ucitavanje modela
+    // ucitavanje modela meseca
     Model moonModel("resources/objects/Moon/Moon.obj");
     moonModel.SetShaderTextureNamePrefix("material.");
 
@@ -288,9 +278,9 @@ int main() {
     pointLight.linear = 0.0086f;
     pointLight.quadratic = 0.002f;
 
+    // modeli kamenja i zemlje
     Model rock("resources/objects/rock/rock.obj");
     Model earthModel("resources/objects/earth/Earth.obj");
-
 
     //HDR
     // configure floating point framebuffer
@@ -318,9 +308,7 @@ int main() {
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
 
-
     // generate sample kernel
-    // ----------------------
     std::uniform_real_distribution<GLfloat> randomFloats(0.0, 1.0); // generates random floats between 0.0 and 1.0
     std::default_random_engine generator;
     std::vector<glm::vec3> ssaoKernel;
@@ -339,7 +327,6 @@ int main() {
 
 
     // generate noise texture
-    // ----------------------
     std::vector<glm::vec3> ssaoNoise;
     for (unsigned int i = 0; i < 16; i++)
     {
@@ -354,14 +341,11 @@ int main() {
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
-
     // lighting info
-    // -------------
     glm::vec3 lightPos = glm::vec3(2.0, 4.0, -2.0);
     glm::vec3 lightColor = glm::vec3(0.2, 0.2, 0.7);
 
     // shader configuration
-    // --------------------
     shaderLightingPass.use();
     shaderLightingPass.setInt("gPosition", 0);
     shaderLightingPass.setInt("gNormal", 1);
@@ -373,10 +357,6 @@ int main() {
     shaderSSAO.setInt("texNoise", 2);
     shaderSSAOBlur.use();
     shaderSSAOBlur.setInt("ssaoInput", 0);
-
-
-
-
 
 
     //primer vise izvora svetlosti
@@ -396,8 +376,8 @@ int main() {
     // --------------------
     moonShader.use();
     moonShader.setInt("diffuseTexture", 0);
-    hdrShader.use();
-    hdrShader.setInt("hdrBuffer", 0);
+//    hdrShader.use();
+//    hdrShader.setInt("hdrBuffer", 0);
 
 
     //instancing
@@ -439,11 +419,9 @@ int main() {
     glBufferData(GL_ARRAY_BUFFER, amount * sizeof(glm::mat4), &modelMatrices[0], GL_STATIC_DRAW);
 
 
-
     // set transformation matrices as an instance vertex attribute (with divisor 1)
     // note: we're cheating a little by taking the, now publicly declared, VAO of the model's mesh(es) and adding new vertexAttribPointers
     // normally you'd want to do this in a more organized fashion, but for learning purposes this will do.
-    // -----------------------------------------------------------------------------------------------------------------------------------
     for (unsigned int i = 0; i < rock.meshes.size(); i++)
     {
         unsigned int VAO = rock.meshes[i].VAO;
@@ -511,8 +489,6 @@ int main() {
             -1.0f, -1.0f,  1.0f,
             1.0f, -1.0f,  1.0f
     };
-
-
 
     //skybox VAO
     unsigned int skyboxVAO, skyboxVBO;
@@ -605,7 +581,6 @@ int main() {
         earthShader.setMat4("model", model);
         earthModel.Draw(earthShader);
 
-
         //renderovanje modela zemlje i asteroida
         projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 1000.0f);
         view = programState->camera.GetViewMatrix();
@@ -631,7 +606,7 @@ int main() {
         glCullFace(GL_BACK);
 
         moonShader.use();
-
+        // Point light
         pointLight.position = glm::vec3(0.0f, -3.0f, -53.0f);
         moonShader.setVec3("pointLight.position", pointLight.position);
         moonShader.setVec3("pointLight.ambient", pointLight.ambient);
@@ -642,7 +617,6 @@ int main() {
         moonShader.setFloat("pointLight.quadratic", pointLight.quadratic);
         moonShader.setVec3("viewPosition", programState->camera.Position);
         moonShader.setFloat("material.shininess", 1000.0f);
-
 
         // spotLight
         moonShader.setVec3("spotLight.position", programState->camera.Position);
@@ -658,15 +632,9 @@ int main() {
         moonShader.setMat4("projection", projection);
         moonShader.setMat4("view",view);
 
-
-
         //variables for moon rotation
-
         float moon_X = (sin(glfwGetTime()/10))*60;
         float moon_Z = -57.0f+(cos(glfwGetTime()/10))*50;
-
-
-        //moon render
 
         model = glm::mat4(1.0f);
         model = glm::translate(model, glm::vec3(moon_X, -3.0f, moon_Z));
@@ -684,7 +652,6 @@ int main() {
         skyboxShader.setMat4("view", view);
         skyboxShader.setMat4("projection", projection);
 
-
         // skybox cube
         glBindVertexArray(skyboxVAO);
         glActiveTexture(GL_TEXTURE0);
@@ -692,9 +659,7 @@ int main() {
         glDrawArrays(GL_TRIANGLES, 0, 36);
         glBindVertexArray(0);
         glDepthFunc(GL_LESS); // set depth function back to default
-        // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
-        // -------------------------------------------------------------------------------
-        //do ovde brisi
+
         if (programState->ImGuiEnabled)
             DrawImGui(programState);
 
@@ -741,7 +706,6 @@ int main() {
         //SSAO
 
         // 1. geometry pass: render scene's geometry/color data into gbuffer
-        // -----------------------------------------------------------------
         glBindFramebuffer(GL_FRAMEBUFFER, gBuffer);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         projection = glm::perspective(glm::radians(programState->camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.2f, 80.0f);
@@ -769,7 +733,6 @@ int main() {
 
 
         // 2. generate SSAO texture
-        // ------------------------
         glBindFramebuffer(GL_FRAMEBUFFER, ssaoFBO);
         glClear(GL_COLOR_BUFFER_BIT);
         shaderSSAO.use();
@@ -788,7 +751,6 @@ int main() {
 
 
         // 3. blur SSAO texture to remove noise
-        // ------------------------------------
         glBindFramebuffer(GL_FRAMEBUFFER, ssaoBlurFBO);
         glClear(GL_COLOR_BUFFER_BIT);
         shaderSSAOBlur.use();
@@ -799,7 +761,6 @@ int main() {
 
 
         // 4. lighting pass: traditional deferred Blinn-Phong lighting with added screen-space ambient occlusion
-        // -----------------------------------------------------------------------------------------------------
 //        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 //        shaderLightingPass.use();
 //        // send light relevant uniforms
@@ -821,13 +782,11 @@ int main() {
         glBindTexture(GL_TEXTURE_2D, ssaoColorBufferBlur);
        // renderQuad();
 
-
         // zamena bafera i slanje na prikaz
         glfwSwapBuffers(window);
         //registrujemo dogadjaje
         glfwPollEvents();
     }
-
 
     glDeleteVertexArrays(1, &skyboxVAO);
     glDeleteVertexArrays(1, &skyboxVAO);
@@ -838,7 +797,6 @@ int main() {
     ImGui_ImplGlfw_Shutdown();
     ImGui::DestroyContext();
     // glfw: terminate, clearing all previously allocated GLFW resources.
-    // ------------------------------------------------------------------
     glfwTerminate();
     return 0;
 }
@@ -873,7 +831,6 @@ unsigned int loadCubemap(vector<string> faces) {
 }
 
 // process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly
-// ---------------------------------------------------------------------------------------------------------
 void processInput(GLFWwindow *window) {
     //da li je pritisnuto escape, ako jeste zatvori prozor
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
@@ -898,40 +855,38 @@ void processInput(GLFWwindow *window) {
     {
         blinnKeyPressed = false;
     }
-
-    if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS && !hdrKeyPressed)
-    {
-        hdr = !hdr;
-        hdrKeyPressed = true;
-    }
-    if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_RELEASE)
-    {
-        hdrKeyPressed = false;
-    }
-
-    if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
-    {
-        if (exposure > 0.0f)
-            exposure -= 0.001f;
-        else
-            exposure = 0.0f;
-    }
-    else if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
-    {
-        exposure += 0.001f;
-    }
+// HDR
+//    if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS && !hdrKeyPressed)
+//    {
+//        hdr = !hdr;
+//        hdrKeyPressed = true;
+//    }
+//    if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_RELEASE)
+//    {
+//        hdrKeyPressed = false;
+//    }
+//
+//    if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
+//    {
+//        if (exposure > 0.0f)
+//            exposure -= 0.001f;
+//        else
+//            exposure = 0.0f;
+//    }
+//    else if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
+//    {
+//        exposure += 0.001f;
+//    }
 
 }
 
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes
-// ---------------------------------------------------------------------------------------------
 void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
     // kako pomeramo prozor tako ce se i slika pomerati
     glViewport(0, 0, width, height);
 }
 
 // glfw: whenever the mouse moves, this callback is called
-// -------------------------------------------------------
 void mouse_callback(GLFWwindow *window, double xpos, double ypos) {
     if (firstMouse) {
         lastX = xpos;
@@ -950,16 +905,12 @@ void mouse_callback(GLFWwindow *window, double xpos, double ypos) {
 }
 
 // glfw: whenever the mouse scroll wheel scrolls, this callback is called
-// ----------------------------------------------------------------------
 void scroll_callback(GLFWwindow *window, double xoffset, double yoffset) {
     programState->camera.ProcessMouseScroll(yoffset);
 }
 
-
 unsigned int loadTexture(const char* path){
     unsigned int TextID;
-
-
     glGenTextures(1, &TextID);
 
     int width, height, nrComp;
@@ -1002,8 +953,8 @@ void DrawImGui(ProgramState *programState) {
 
     {
         static float f = 0.0f;
-        ImGui::Begin("Hello window");
-        ImGui::Text("Hello text");
+        ImGui::Begin("Properties");
+        ImGui::Text("Properties");
         ImGui::SliderFloat("Float slider", &f, 0.0, 1.0);
         ImGui::ColorEdit3("Background color", (float *) &programState->clearColor);
         ImGui::DragFloat3("Backpack position", (float*)&programState->backpackPosition);
@@ -1012,6 +963,33 @@ void DrawImGui(ProgramState *programState) {
         ImGui::DragFloat("pointLight.constant", &programState->pointLight.constant, 0.05, 0.0, 1.0);
         ImGui::DragFloat("pointLight.linear", &programState->pointLight.linear, 0.05, 0.0, 1.0);
         ImGui::DragFloat("pointLight.quadratic", &programState->pointLight.quadratic, 0.05, 0.0, 1.0);
+        ImGui::End();
+    }
+
+    {
+        ImGui::Begin("Moon facts");
+        ImGui::Text("Moon phases and the moon's orbit are mysteries to many.\n"
+                    "For example, the moon always shows us the same face.\n"
+                    "That happens because it takes 27.3 days both to rotate on its axis and to orbit Earth.\n"
+                    "We see either the full moon, half moon or no moon (new moon) because the moon reflects sunlight.\n"
+                    "How much of it we see depends on the moon's position in relation to Earth and the sun.\n"
+                    "\n"
+                    "Though a satellite of Earth, the moon, with a diameter of about 2,159 miles (3,475 kilometers), is bigger than Pluto.\n"
+                    "(Four other moons in our solar system are even bigger.)\n"
+                    "The moon is a bit more than one-fourth (27 percent) the size of Earth, a much smaller ratio (1:4) than any other planets and their moons.\n"
+                    "This means the moon has a great effect on the planet and very possibly is what makes life on Earth possible.");
+        ImGui::End();
+    }
+
+    {
+        ImGui::Begin("Earth facts");
+        ImGui::Text("Earth is the third planet from the Sun and the only astronomical object known to harbor life.\n"
+                    "While large amounts of water can be found throughout the Solar System, only Earth sustains liquid surface water.\n"
+                    "About 71% of Earth's surface is made up of the ocean, dwarfing Earth's polar ice, lakes and rivers.\n"
+                    "The remaining 29% of Earth's surface is land, consisting of continents and islands.\n"
+                    "Earth's surface layer is formed of several slowly moving tectonic plates, interacting to produce mountain ranges, volcanoes and earthquakes.\n"
+                    "Earth's liquid outer core generates the magnetic field that shapes Earth's magnetosphere, deflecting destructive solar winds.\n");
+
         ImGui::End();
     }
 
@@ -1046,7 +1024,6 @@ unsigned int cubeVBO = 0;
 
 void renderCube()
 {
-    // initialize (if necessary)
     if (cubeVAO == 0)
     {
         float vertices[] = {
@@ -1117,7 +1094,6 @@ void renderCube()
 
 
 // renderQuad() renders a 1x1 XY quad in NDC
-// -----------------------------------------
 unsigned int quadVAO = 0;
 unsigned int quadVBO;
 void renderQuad()
