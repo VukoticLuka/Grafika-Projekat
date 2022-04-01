@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/luka/Desktop/8/Grafika-Projekat/libs/stb_image.cpp" "CMakeFiles/STB_IMAGE.dir/libs/stb_image.cpp.o" "gcc" "CMakeFiles/STB_IMAGE.dir/libs/stb_image.cpp.o.d"
+  "/home/luka/Desktop/Projekat/Grafika-Projekat/libs/stb_image.cpp" "CMakeFiles/STB_IMAGE.dir/libs/stb_image.cpp.o" "gcc" "CMakeFiles/STB_IMAGE.dir/libs/stb_image.cpp.o.d"
   )
 
 # Targets to which this target links.
