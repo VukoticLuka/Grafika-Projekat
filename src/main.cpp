@@ -195,10 +195,10 @@ int main() {
 
     // build and compile shaders
     // -------------------------
-    Shader shaderGeometryPass("resources/shaders/9.ssao_geometry.vs", "resources/shaders/9.ssao_geometry.fs");
-    Shader shaderLightingPass("resources/shaders/9.ssao.vs", "resources/shaders/9.ssao_lighting.fs");
-    Shader shaderSSAO("resources/shaders/9.ssao.vs", "resources/shaders/9.ssao.fs");
-    Shader shaderSSAOBlur("resources/shaders/9.ssao.vs", "resources/shaders/9.ssao_blur.fs");
+    Shader shaderGeometryPass("resources/shaders/ssao_geometry.vs", "resources/shaders/ssao_geometry.fs");
+    Shader shaderLightingPass("resources/shaders/ssao.vs", "resources/shaders/ssao_lighting.fs");
+    Shader shaderSSAO("resources/shaders/ssao.vs", "resources/shaders/ssao.fs");
+    Shader shaderSSAOBlur("resources/shaders/ssao.vs", "resources/shaders/ssao_blur.fs");
 
     //SSAO
     // configure g-buffer framebuffer
@@ -376,88 +376,7 @@ int main() {
 
 
 
-    //SSAO
 
-    // 1. geometry pass: render scene's geometry/color data into gbuffer
-    // -----------------------------------------------------------------
-    glBindFramebuffer(GL_FRAMEBUFFER, gBuffer);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glm::mat4 projection = glm::perspective(glm::radians(programState->camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 50.0f);
-    glm::mat4 view = programState->camera.GetViewMatrix();
-    glm::mat4 model = glm::mat4(1.0f);
-    shaderGeometryPass.use();
-    shaderGeometryPass.setMat4("projection", projection);
-    shaderGeometryPass.setMat4("view", view);
-
-    model = glm::mat4(1.0f);
-    model = glm::translate(model, glm::vec3(0.0, 7.0f, 0.0f));
-    model = glm::scale(model, glm::vec3(7.5f, 7.5f, 7.5f));
-    shaderGeometryPass.setMat4("model", model);
-    shaderGeometryPass.setInt("invertedNormals", 1); // invert normals as we're inside the cube
-    renderCube();
-    shaderGeometryPass.setInt("invertedNormals", 0);
-
-    model = glm::mat4(1.0f);
-    model = glm::translate(model, glm::vec3(0.0f, 0.5f, 0.0));
-    model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0, 0.0, 0.0));
-    model = glm::scale(model, glm::vec3(1.0f));
-    shaderGeometryPass.setMat4("model", model);
-    moonModel.Draw(shaderGeometryPass);
-    glBindFramebuffer(GL_FRAMEBUFFER, 0);
-
-
-    // 2. generate SSAO texture
-    // ------------------------
-    glBindFramebuffer(GL_FRAMEBUFFER, ssaoFBO);
-    glClear(GL_COLOR_BUFFER_BIT);
-    shaderSSAO.use();
-    // Send kernel + rotation
-    for (unsigned int i = 0; i < 64; ++i)
-        shaderSSAO.setVec3("samples[" + std::to_string(i) + "]", ssaoKernel[i]);
-    shaderSSAO.setMat4("projection", projection);
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, gPosition);
-    glActiveTexture(GL_TEXTURE1);
-    glBindTexture(GL_TEXTURE_2D, gNormal);
-    glActiveTexture(GL_TEXTURE2);
-    glBindTexture(GL_TEXTURE_2D, noiseTexture);
-    renderQuad();
-    glBindFramebuffer(GL_FRAMEBUFFER, 0);
-
-
-    // 3. blur SSAO texture to remove noise
-    // ------------------------------------
-    glBindFramebuffer(GL_FRAMEBUFFER, ssaoBlurFBO);
-    glClear(GL_COLOR_BUFFER_BIT);
-    shaderSSAOBlur.use();
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, ssaoColorBuffer);
-    renderQuad();
-    glBindFramebuffer(GL_FRAMEBUFFER, 0);
-
-
-    // 4. lighting pass: traditional deferred Blinn-Phong lighting with added screen-space ambient occlusion
-    // -----------------------------------------------------------------------------------------------------
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    shaderLightingPass.use();
-    // send light relevant uniforms
-    glm::vec3 lightPosView = glm::vec3(programState->camera.GetViewMatrix() * glm::vec4(lightPos, 1.0));
-    shaderLightingPass.setVec3("light.Position", lightPosView);
-    shaderLightingPass.setVec3("light.Color", lightColor);
-    // Update attenuation parameters
-    const float linear    = 0.09;
-    const float quadratic = 0.032;
-    shaderLightingPass.setFloat("light.Linear", linear);
-    shaderLightingPass.setFloat("light.Quadratic", quadratic);
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, gPosition);
-    glActiveTexture(GL_TEXTURE1);
-    glBindTexture(GL_TEXTURE_2D, gNormal);
-    glActiveTexture(GL_TEXTURE2);
-    glBindTexture(GL_TEXTURE_2D, gAlbedo);
-    glActiveTexture(GL_TEXTURE3); // add extra SSAO texture to lighting pass
-    glBindTexture(GL_TEXTURE_2D, ssaoColorBufferBlur);
-    renderQuad();
 
 
     //primer vise izvora svetlosti
@@ -819,7 +738,88 @@ int main() {
 //
 //        std::cout << "hdr: " << (hdr ? "on" : "off") << "| exposure: " << exposure << std::endl;
 
+        //SSAO
 
+        // 1. geometry pass: render scene's geometry/color data into gbuffer
+        // -----------------------------------------------------------------
+        glBindFramebuffer(GL_FRAMEBUFFER, gBuffer);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        projection = glm::perspective(glm::radians(programState->camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.2f, 80.0f);
+       view = programState->camera.GetViewMatrix();
+         model = glm::mat4(1.5f);
+        shaderGeometryPass.use();
+        shaderGeometryPass.setMat4("projection", projection);
+        shaderGeometryPass.setMat4("view", view);
+
+        model = glm::mat4(1.0f);
+        model = glm::translate(model, glm::vec3(0.0, 7.0f, 0.0f));
+        model = glm::scale(model, glm::vec3(7.5f, 7.5f, 7.5f));
+        shaderGeometryPass.setMat4("model", model);
+        shaderGeometryPass.setInt("invertedNormals", 1); // invert normals as we're inside the cube
+        //renderCube();
+        shaderGeometryPass.setInt("invertedNormals", 0);
+
+        model = glm::mat4(1.0f);
+        model = glm::translate(model, glm::vec3(0.0f, 0.5f, 0.0));
+        model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0, 0.0, 0.0));
+        model = glm::scale(model, glm::vec3(1.0f));
+        shaderGeometryPass.setMat4("model", model);
+        moonModel.Draw(shaderGeometryPass);
+        glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+
+        // 2. generate SSAO texture
+        // ------------------------
+        glBindFramebuffer(GL_FRAMEBUFFER, ssaoFBO);
+        glClear(GL_COLOR_BUFFER_BIT);
+        shaderSSAO.use();
+        // Send kernel + rotation
+        for (unsigned int i = 0; i < 64; ++i)
+            shaderSSAO.setVec3("samples[" + std::to_string(i) + "]", ssaoKernel[i]);
+        shaderSSAO.setMat4("projection", projection);
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, gPosition);
+        glActiveTexture(GL_TEXTURE1);
+        glBindTexture(GL_TEXTURE_2D, gNormal);
+        glActiveTexture(GL_TEXTURE2);
+        glBindTexture(GL_TEXTURE_2D, noiseTexture);
+        //renderQuad();
+        glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+
+        // 3. blur SSAO texture to remove noise
+        // ------------------------------------
+        glBindFramebuffer(GL_FRAMEBUFFER, ssaoBlurFBO);
+        glClear(GL_COLOR_BUFFER_BIT);
+        shaderSSAOBlur.use();
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, ssaoColorBuffer);
+        //renderQuad();
+        glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+
+        // 4. lighting pass: traditional deferred Blinn-Phong lighting with added screen-space ambient occlusion
+        // -----------------------------------------------------------------------------------------------------
+//        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+//        shaderLightingPass.use();
+//        // send light relevant uniforms
+//        glm::vec3 lightPosView = glm::vec3(programState->camera.GetViewMatrix() * glm::vec4(lightPos, 1.0));
+//        shaderLightingPass.setVec3("light.Position", lightPosView);
+//        shaderLightingPass.setVec3("light.Color", lightColor);
+        // Update attenuation parameters
+        const float linear    = 0.11;
+        const float quadratic = 0.052;
+        shaderLightingPass.setFloat("light.Linear", linear);
+        shaderLightingPass.setFloat("light.Quadratic", quadratic);
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, gPosition);
+        glActiveTexture(GL_TEXTURE1);
+        glBindTexture(GL_TEXTURE_2D, gNormal);
+        glActiveTexture(GL_TEXTURE2);
+        glBindTexture(GL_TEXTURE_2D, gAlbedo);
+        glActiveTexture(GL_TEXTURE3); // add extra SSAO texture to lighting pass
+        glBindTexture(GL_TEXTURE_2D, ssaoColorBufferBlur);
+       // renderQuad();
 
 
         // zamena bafera i slanje na prikaz
