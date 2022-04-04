@@ -3,7 +3,7 @@ Projekat "Svemir" sa pratećim bibliotekama koje koristimo na času.
 
 # Uputstvo
 1. `git clone https://matf-racunarska-grafika.github.io/projekat/`
-2. Link do youtube kanala na kome se nalazi odbrana projekta: ''
+2. Link do youtube kanala na kome se nalazi odbrana projekta: 'https://youtu.be/N0ctnnRcp2I'
 3. CLion -> Open -> path/to/my/project_base
 4. Projekat sadrzi prvih 8 nedelja, Blending, Face culling, Advanced lighting, Instancing, Cubemaps, SSAO.
 5. Main se nalazi u src/main.cpp

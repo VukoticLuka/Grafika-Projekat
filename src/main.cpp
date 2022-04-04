@@ -185,8 +185,8 @@ int main() {
     Shader asteroidShader("resources/shaders/rocks.vs", "resources/shaders/rocks.fs");
 
     //shaderi za hdr
-    //Shader shader("resources/shaders/6.lighting.vs", "resources/shaders/6.lighting.fs");
-    //Shader hdrShader("resources/shaders/6.hdr.vs", "resources/shaders/6.hdr.fs");
+    //Shader shader("resources/shaders/lighting.vs", "resources/shaders/lighting.fs");
+    //Shader hdrShader("resources/shaders/hdr.vs", "resources/shaders/hdr.fs");
 
     // build and compile shaders for SSAO
     Shader shaderGeometryPass("resources/shaders/ssao_geometry.vs", "resources/shaders/ssao_geometry.fs");
@@ -856,27 +856,27 @@ void processInput(GLFWwindow *window) {
         blinnKeyPressed = false;
     }
 // HDR
-//    if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS && !hdrKeyPressed)
-//    {
-//        hdr = !hdr;
-//        hdrKeyPressed = true;
-//    }
-//    if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_RELEASE)
-//    {
-//        hdrKeyPressed = false;
-//    }
-//
-//    if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
-//    {
-//        if (exposure > 0.0f)
-//            exposure -= 0.001f;
-//        else
-//            exposure = 0.0f;
-//    }
-//    else if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
-//    {
-//        exposure += 0.001f;
-//    }
+    if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS && !hdrKeyPressed)
+    {
+        hdr = !hdr;
+        hdrKeyPressed = true;
+    }
+    if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_RELEASE)
+    {
+        hdrKeyPressed = false;
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
+    {
+        if (exposure > 0.0f)
+            exposure -= 0.001f;
+        else
+            exposure = 0.0f;
+    }
+    else if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
+    {
+        exposure += 0.001f;
+    }
 
 }
 
